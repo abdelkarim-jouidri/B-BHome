@@ -11,36 +11,66 @@
       <link rel="stylesheet" href="assets\style.css">
       <title>statistics</title>
 </head>
-<body  class="bg-secondary">
+<body  >
+  <div class="card" style = "height: fit-content;">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
 
-<div class="page-wrapper">
- <div class="nav-wrapper">
-  <div class="grad-bar"></div>
-  <nav class="navbar">
-      <div> <img class="rounded-circle mb-3 mx-2" style=" height:35px" src="assets\logo.png" alt=""></div>
-      <div class="menu-toggle" id="mobile-menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <ul class="nav no-search">
-
-            <li class="nav-item"><span class="text-darkt">Paris</span> </li>
-            <li class="nav-item"><span class="text-dark">19 ℃</span> </li>
-            <li class="nav-item my-2"><img src="assets\day.svg" style="height:60px" alt=""</li>
-     <li class="nav-item"> <img  src="assets\switch off-on button.png" style="height:35px"  class="d-flex" role="search"></li>
-    
+      <div class="carousel-item active">
+        
+        <div class="card" style="width: 18rem;">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="d-block w-100" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
       
-    </ul>
-  </nav>
+      <div>
+      <div class="carousel-item">
+        <div class="card" style="width: 18rem;">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="d-block w-100" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="card" style="width: 18rem;">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="d-block w-100" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <section class="headline">
-    <h1>Responsive Navigation</h1>
-    <p>Using CSS grid and flexbox to easily build navbars!</p>
-  </section> 
+  </div>
 
 
-<section>
+
+
+
+
+
+
+<!-- 
+  <section>
 
       <div class="card-group">
             <div class="card">
@@ -56,6 +86,7 @@
                 </p>
               </div>
             </div>
+          
             <div class="card">
               <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road"/>
               <div class="card-body">
@@ -66,7 +97,8 @@
                 </p>
               </div>
             </div>
-            <div class="card">
+
+      <div class="card">
               <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers"/>
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -83,32 +115,10 @@
           </div>
 
 
-</section>
+</section> -->
 
 
 
-
-
-
-
-
-  <section class="features">
-    <div class="feature-container">
-      <img src="https://cdn-images-1.medium.com/max/2000/1*HFAEJvVOq4AwFuBivNu_OQ.png" alt="Flexbox Feature">
-      <h2>Flexbox Featured</h2>
-      <p>This pen contains use of flexbox for the headline and feature section! We use it in our mobile navbar and show the power of mixing css grid and flexbox.</p>
-    </div>
-    <div class="feature-container">
-      <img src="https://blog.webix.com/wp-content/uploads/2017/06/20170621-CSS-Grid-Layout-710x355-tiny.png" alt="Flexbox Feature">
-      <h2>CSS Grid Navigation</h2>
-      <p>While flexbox is used for the the mobile navbar, CSS grid is used for the desktop navbar showing many ways we can use both.</p>
-    </div>
-    <div class="feature-container">
-      <img src="https://www.graycelltech.com/wp-content/uploads/2015/06/GCT-HTML5.jpg" alt="Flexbox Feature">
-      <h2>Basic HTML5</h2>
-      <p>This pen contains basic html to setup the page to display the responsive navbar.</p>
-    </div>
-  </section>
 </div>
 <script src="assets/app.js"></script>
 </body>
