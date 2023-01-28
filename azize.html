@@ -73,12 +73,21 @@
         <h5 class="fw-bold">Modifier les valeurs de consignes </h5> 
       </div>
       <div class=" item">
+             
+
+        <!-- <div id="slider">
+          <span id="value">50</span>
+          <input type="range" id="range" value="50"/>
+      </div>  -->
+      
+      
+
 
       <div class="température  p-2 d-flex justify-content-around align-item-center">
           <div class="margin-right-120 fw-bold">Température  </div>
           <div class="range" id="temperatue">
             <!-- <span id="rs-bullet" class="rs-label">0</span> -->
-            <input type="range" class="form-range" id="customRange1" min="0" max="30" />
+            <input id="input-temperature" type="range" class="form-range" value="" id="customRange1" min="0" max="30" />
            
             <datalist id="values">
               <option class="fw-bold" value="0" label="5°C"></option>
@@ -176,7 +185,16 @@
     </div>
   </div>
  
-  <script src="azize.js"></script>
+  <script>
+ $(document).ready(function(){
+//   $('#range').change(function(){
+//     var span = $('#value');
+//     span.html(this.value);
+//     span.css('left',this.value);
+// }); 
+})
+  </script>
 </body>
+
 
 </html>
