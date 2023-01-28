@@ -87,10 +87,15 @@
           <div class="margin-right-120 fw-bold">Température  </div>
           <div class="range" id="temperatue">
             <!-- <span id="rs-bullet" class="rs-label">0</span> -->
-            <input id="input-temperature" type="range" class="form-range" value="" id="customRange1" min="0" max="30" />
+            <input  type="range" value="18" class="form-range slider"  id="input-temperature" min="5" max="30" />
+           
+           
            
             <datalist id="values">
               <option class="fw-bold" value="0" label="5°C"></option>
+
+              <div class="text-cente fw-bold fs-4" id="temperature-value"></div>
+
               <option class="fw-bold" value="30" label="30°C"></option>
             </datalist>
            
@@ -102,9 +107,13 @@
       <div class="humidite p-2 d-flex justify-content-around align-item-center">
         <div style="margin-right: 51px;" class="margin-right-120 fw-bold">Humidité  </div>
         <div class="range">
-          <input type="range" class="form-range" id="customRange1" min="0" max="100"/>
+          <input type="range" value="50" class="form-range" id="input-humidite" min="0" max="100"/>
           <datalist id="values">
+
             <option class="fw-bold" value="0" label="0%"></option>
+
+            <div class="text-cente fw-bold fs-4" id="humidite-value"></div>
+
             <option class="fw-bold" value="100" label="100%"></option>
           </datalist>
          
@@ -114,9 +123,11 @@
       <div class="luminosite p-2 d-flex justify-content-around align-item-center">
         <div class="margin-right-120 fw-bold">Luminosité  </div>
         <div class="range">
-          <input type="range" class="form-range" id="customRange1" min="0" max="100"/>
+          <input type="range" class="form-range" value="50" id="input-luminosite" min="0" max="100"/>
           <datalist id="values">
+
             <option class="fw-bold" value="0" label="0%"></option>
+            <div class="text-cente fw-bold fs-4" id="luminosite-value"></div>
             <option class="fw-bold" value="100" label="100%"></option>
           </datalist>
         </div>
@@ -147,9 +158,10 @@
       <div class="Eclairage p-2 d-flex justify-content-around align-item-center">
         <div style="margin-right: -2px;" class="margin-right-114 fw-bold">Eclairage  </div>
         <div class="range ">
-          <input type="range" class="form-range" id="customRange1" min="0" max="100"/>
+          <input type="range" class="form-range" value="50" id="input-eclairage" min="0" max="100"/>
           <datalist id="values">
             <option class="fw-bold" value="0" label="0%"></option>
+            <div class="text-cente fw-bold fs-4" id="eclairage-value"></div>
             <option class="fw-bold" value="100" label="100%"></option>
           </datalist>
         </div>
@@ -158,9 +170,10 @@
       <div class="Volets p-2 d-flex justify-content-around align-item-center">
         <div style="margin-right: 13px;" class="margin-right-114 fw-bold">Volets  </div>
         <div class="range ">
-          <input type="range" class="form-range" id="customRange1" min="0" max="100"/>
+          <input type="range" class="form-range" value="50" id="input-volets" min="0" max="100"/>
           <datalist id="values">
             <option class="fw-bold" value="0" label="0%"></option>
+            <div class="text-cente fw-bold fs-4" id="volets-value"></div>
             <option class="fw-bold" value="100" label="100%"></option>
           </datalist>
         </div>
@@ -187,11 +200,50 @@
  
   <script>
  $(document).ready(function(){
-//   $('#range').change(function(){
-//     var span = $('#value');
-//     span.html(this.value);
-//     span.css('left',this.value);
-// }); 
+//temp
+var slider_temp = document.getElementById("input-temperature");
+var value_temp = document.getElementById("temperature-value");
+
+value_temp.innerHTML = slider_temp.value+'°C'; 
+slider_temp.oninput = function() {
+value_temp.innerHTML = this.value+'°C';
+}
+//humidite
+var slider_humidite = document.getElementById("input-humidite");
+var value_humidite = document.getElementById("humidite-value");
+
+value_humidite.innerHTML = slider_humidite.value+'%'; 
+slider_humidite.oninput = function() {
+  value_humidite.innerHTML = this.value+'°C';
+}
+//luminosite
+var slider_luminosite = document.getElementById("input-luminosite");
+var value_luminosite = document.getElementById("luminosite-value");
+
+value_luminosite.innerHTML = slider_luminosite.value+'%'; 
+slider_luminosite.oninput = function() {
+  value_luminosite.innerHTML = this.value+'°C';
+}
+//eclairage
+var slider_eclairage = document.getElementById("input-eclairage");
+var value_eclairage = document.getElementById("eclairage-value");
+
+value_eclairage.innerHTML = slider_eclairage.value+'%'; 
+slider_eclairage.oninput = function() {
+  value_eclairage.innerHTML = this.value+'°C';
+}
+
+//volets
+
+var slider_volets = document.getElementById("input-volets");
+var value_volets = document.getElementById("volets-value");
+
+value_volets.innerHTML = slider_volets.value+'%'; 
+slider_volets.oninput = function() {
+  value_volets.innerHTML = this.value+'°C';
+}
+
+
 })
   </script>
 </body>
