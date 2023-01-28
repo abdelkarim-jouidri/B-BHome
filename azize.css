@@ -57,6 +57,7 @@ width: 100%;
 }
 input[type=range]{
     -webkit-appearance: none;
+    /* position:relative; */
 }
 
 input[type=range]::-webkit-slider-runnable-track {
@@ -67,7 +68,8 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
+   content:'c';
+  -webkit-appearance: none;
     border: 1px solid black;
     height: 1.1em;
     width: 1.1em;
@@ -79,7 +81,18 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]:focus {
     outline: none;
 }
+/* #value{
+  position:absolute;
+  margin-left:35.3%;
+  margin-top:2%;
+  z-index:1;
+  padding-bottom:5px;
 
+} 
+*/
+/* start */
+
+/* end */
 
 #check1:not(:checked),#check2:not(:checked),#check3:not(:checked) {
   background-color:white;
