@@ -138,6 +138,87 @@ body{
   }
 }
 
+.margin-right-90{
+  margin-right: 90px;
+}
+.margin-right-114{
+  margin-right: 6px;
+}
+.margin-right-120{
+  margin-right:30px;
+}
+.padding-right-46{
+  padding-right: 46px;
+}
+input[type="range"]{
+width: 100%;
+}
+.margin-right-241{
+  margin-right:241px;
+}
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height:8px;
+    background: #0c6b29;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid black;
+    height: 1.1em;
+    width: 1.1em;
+    border-radius: 50%;
+    background: white;
+    margin-top: -4px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+
+#check1:not(:checked),#check2:not(:checked) {
+  background-color:white;
+  border:1px solid black;
+}
+
+
+#check1:checked,#check2:checked {
+  background-color:#0c6b29;
+  border:1px solid black;
+}
+/* position */
+datalist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* writing-mode: vertical-lr; */
+  width: 200px;
+}
+
+/* .rs-label{
+margin-left:20px;
+}
+
+.rs-label::after {
+  content:'°C';
+
+} */
+/* #temperatue{
+  position:relative;
+}
+#5degre{
+  position:absolute;
+  top:20px;
+  left:30px;
+} */
+
+
 .wrapper .sidebar ul li a{
     display: block;
     padding: 20px;
