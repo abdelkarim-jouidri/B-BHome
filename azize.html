@@ -24,94 +24,30 @@
 
   <div class="wrapper">
 
-    <div class="top_navbar">
-      <div class="hamburger">
-        <div class="one"></div>
-        <div class="two"></div>
-        <div class="three"></div>
-      </div>
-      <div class="top_menu">
-        <div class="logo">
-               logo
-        </div>
-        <ul>
-          <li><a href="#" class="a-link-ville">
-               Paris 19 °C
-            </a></li>
-          <li><a href="#" class="a-link-ville">
-              <i class="fas fa-cloud"></i>
-            </a></li>
-          <li><a href="#" class="a-link">
-              <i class="fas fa-user"></i>
-            </a></li>
-        </ul>
-      </div>
-      <!-- hamberguer -->
-    </div>
-
-    <div class="sidebar">
-      <ul>
-        <li>
-          <a href="#" class="sidebar-icon-span">
-            <span class="icon"><img class="sidebar-icon-img"
-                src="https://img.icons8.com/wired/64/null/home-page.png" /></span>
-            <span class="title">Home</span>
-          </a>
-        </li>
-        <hr style="border: 1px solid black; margin: 0 10px;">
-        <li><a href="#" class="sidebar-icon-span">
-            <span class="icon"><img class="sidebar-icon-img"
-                src="https://img.icons8.com/wired/64/null/positive-dynamic.png" /></span>
-            <span class="title">Historique</span>
-          </a></li>
-        <hr style="border: 1px solid black; margin: 0 10px;">
-
-        <li><a href="#" class="sidebar-icon-span">
-            <span class="icon"><img class="sidebar-icon-img"
-                src="https://img.icons8.com/wired/64/null/alarm.png" /></span>
-            <span class="title">Alerts</span>
-          </a></li>
-        <hr style="border: 1px solid black; margin: 0 10px;">
-
-        <li><a href="#" class="active sidebar-icon-span">
-            <span class="icon"><img class="sidebar-icon-img"
-                src="https://img.icons8.com/wired/64/null/administrator-male.png" /></span>
-            <span class="title">Profil</span>
-          </a></li>
-        <hr style="border: 1px solid black; margin: 0 10px;">
-
-        <li><a href="#" class="sidebar-icon-span">
-            <span class="icon"><img class="sidebar-icon-img"
-                src="https://img.icons8.com/wired/64/null/settings.png" /></span>
-            <span class="title">Setting</span>
-          </a></li>
-        <hr style="border: 1px solid black; margin: 0 10px;">
-
-      </ul>
-    </div>
+ 
 
     <div class="main_container d-flex flex-column">
       <!-- les 3 logos -->
       <div class="item d-flex flex-wrap justify-content-around  align-item-center">
           <!-- 1 logo -->
-          <div class="first-logo  border border-secondary rounded  p-3 mt-1 mr-1 d-flex justify-content-between align-item-center">
+          <div class="first-logo border  border-2 border-secondary rounded  p-3 mt-1 mr-1 d-flex justify-content-between align-item-center">
             
              <div><img class="logos-icon-img" src="logo1.png"/></div>
              <div class="pt-4  ">
               <div class="font-weight-bold text-icon d-flex justify-content-between">
-                <span class="mr-1">19</span>
+                <span class="me-1">19</span>
                 <span>°C</span> 
               </div>
              </div> 
           </div>
           <!-- 2 logo -->
 
-          <div class="second-logo border border-secondary rounded  p-3 mt-1 mr-1 d-flex justify-content-between align-item-center">
+          <div class="second-logo border border-2 border-secondary rounded  p-3 mt-1 mr-1 d-flex justify-content-between align-item-center">
             <div><img class="logos-icon-img" src="logo2.png"/></div>
              <div class="pt-4  ">
               
               <div class="font-weight-bold text-icon d-flex justify-content-between">
-                <span class="mr-1">80</span>
+                <span class="me-1">80</span>
                 <span>%</span> 
               </div> 
             
@@ -119,11 +55,11 @@
                
           </div>
           <!-- 3 logo -->
-          <div class="third-logo border border-secondary rounded  p-3 mt-1 d-flex justify-content-between align-item-center">
+          <div class="third-logo border border-2 border-secondary rounded  p-3 mt-1 d-flex justify-content-between align-item-center">
             <div><img class="logos-icon-img" src="logo3-removebg-preview.png"/></div>
              <div class="pt-4 ">
               <div class="font-weight-bold text-icon d-flex justify-content-between">
-              <span class="mr-1">433</span>
+              <span class="me-1">433</span>
               <span>Lux</span> 
             </div>  
           </div> 
@@ -133,7 +69,7 @@
         
       </div>
 
-      <div class="item text-center  border border-success ">
+      <div class="item text-center  border border-4 border-success ">
         <h5 class="fw-bold">Modifier les valeurs de consignes </h5> 
       </div>
       <div class=" item">
@@ -178,8 +114,8 @@
       </div>
 
       </div>
-      <div class="item text-center  border border-success ">
-        <h5 class="fw-bold">Etat :</h5> 
+      <div class="item text-center  border border-4 border-success ">
+        <h5 class="fw-bold">Etat </h5> 
       </div>
       <div class="item">
         <div class="Chauffage p-2 d-flex justify-content-around align-item-center">
@@ -222,9 +158,24 @@
       </div>
 
       </div>
+
+      <div class="item text-center  border border-4 border-success ">
+        <h5 class="fw-bold">Absent ?</h5> 
+      </div>
+         
+      <div class="item">
+        <div class="Chauffage p-2 d-flex justify-content-center align-item-center">
+          
+          <!-- <div class="margin-right-120 fw-bold">Chauffage  </div> -->
+          <div class="form-check form-switch ">
+            <input   class="form-check-input padding-right-46" type="checkbox" id="check3" >
+            <!-- <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> -->
+          </div>
+      </div>
+
     </div>
   </div>
-
+ 
   <script src="azize.js"></script>
 </body>
 
