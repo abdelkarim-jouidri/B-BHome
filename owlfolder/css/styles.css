@@ -45,7 +45,7 @@ body {
   top: calc(50% - 25px);
   right: 0;
   opacity: 1;
-  font-size: 30px !important;
+  font-size: 40px !important;
   z-index: 1;
 }
 .owl-dots {
