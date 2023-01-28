@@ -12,7 +12,8 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
- 
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+
   <link rel="stylesheet" href="abdelkrim-styles.css">
   <script src="script-abdelkrim.js" defer></script>
 </head>
@@ -33,7 +34,7 @@
   </header>
   <!----------------------------------------------------------------------- End of nav bar ------------------------------------------------------>
 
-    <div class="container">
+    <div class="Container">
       <!----------------------------------------------------------------------- side bar ------------------------------------------------------->
     <aside class="sidebar" data-sidebar>
       <div class="middle-sidebar">
@@ -50,7 +51,7 @@
               <div class="hidden-sidebar sidebar-link-text ">Historique</div>
             </a>
           </li>
-          <li class="sidebar-list-item activated" onclick="makeElementActive(this)">
+          <!-- <li class="sidebar-list-item activated" onclick="makeElementActive(this)">
             <a href="#" class="sidebar-link">
               <svg class="sidebar-icon activated" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"  >
                   <g >
@@ -61,7 +62,7 @@
               </svg>
               <div class="hidden-sidebar sidebar-link-text activated">Alertes</div>
             </a>
-          </li>
+          </li> -->
           <li class="sidebar-list-item " onclick="makeElementActive(this)">
             <a href="#" class="sidebar-link">
               <svg  xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 48 48">
@@ -97,12 +98,52 @@
       <!----------------------------------------------------------------------- End of side bar ------------------------------------------------->
 
     <main class="content">
+
+  <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
+      <div class="card" style="width: 35rem;">
+        <section id="slider" class="pt-5">
+              <div class="container">
+                  <div class="slider">
+                            <div class="owl-carousel">
+                                <div class="slider-card">
+                                    <div class="d-flex justify-content-center align-items-center mb-4">
+                                      <button> <img src="images/210.jpg" alt=""></button>                                  
+                                    </div>
+                                </div>
+                                <div class="slider-card">
+                                    <div class="d-flex justify-content-center align-items-center mb-4">
+                                      <button> <img src="images/210.jpg" alt=""></button>                                  
+                                    </div>
+                                </div>
+                                <div class="slider-card">
+                                    <div class="d-flex justify-content-center align-items-center mb-4">
+                                      <button> <img src="images/210.jpg" alt=""></button>
+                                    </div>
+                                </div>
+                                <div class="slider-card">
+                                    <div class="d-flex justify-content-center align-items-center mb-4">
+                                      <button> <img src="images/210.jpg" alt=""></button>
+                                    </div>
+                                </div>
+                                <div class="slider-card">
+                                    <div class="d-flex justify-content-center align-items-center mb-4">
+                                      <button> <img src="images/210.jpg" alt=""></button>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+              </div>
+            </section>
+      </div>
+        <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
+
       <!-- /*------------------------------------------------------------------- Aziz's part---------------------------------------------------------------------------------------------------------------> 
      <div class="wrapper">
 
  
 
-        <div class="main_container d-flex flex-column">
+        <div class="main_Container d-flex flex-column">
           <!-- les 3 logos -->
           <div class="item d-flex flex-wrap justify-content-around  align-item-center">
               <!-- 1 logo -->
@@ -264,5 +305,10 @@
 
     </main>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
+  <script src="js/owl.carousel.min.js"></script>
 </body>
 </html>
