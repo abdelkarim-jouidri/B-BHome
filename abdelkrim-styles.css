@@ -1,3 +1,5 @@
+/*------------------------------------------------------------------- Abdelkrim's part--------------------------------------------------------------------------------------------------------------- */
+
 body {
   margin: 0;
 }
@@ -292,3 +294,160 @@ img{
     margin: 0;
   }
 }
+
+/*----------------------------------------------------------End of Abdelkrim's part--------------------------------------------------------------------------- */
+
+
+/*------------------------------------------------------------------- Aziz's part--------------------------------------------------------------------------------------------------------------- */
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body{
+  background: #e1ecf2;
+}
+
+.wrapper{
+  margin: 10px;
+}
+
+/* logos img  */
+.logos-icon-img{
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  margin-right: 10px;
+  max-height: 100%;
+	max-width: 100%;
+  background-color: transparent;
+  
+ }
+ @media only screen and (max-width: 876px) {
+  body {
+    background-color: red;
+  }
+  .first-logo,.second-logo,.third-logo{
+    width: 100%;
+  }
+}
+
+.margin-right-90{
+  margin-right: 90px;
+}
+.margin-right-114{
+  margin-right: 6px;
+}
+.margin-right-120{
+  margin-right:30px;
+}
+.padding-right-46{
+  padding-right: 46px;
+}
+input[type="range"]{
+width: 100%;
+}
+.margin-right-241{
+  margin-right:241px;
+}
+input[type=range]{
+    -webkit-appearance: none;
+    /* position:relative; */
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height:8px;
+    background: #0c6b29;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+   content:'c';
+  -webkit-appearance: none;
+    border: 1px solid black;
+    height: 1.1em;
+    width: 1.1em;
+    border-radius: 50%;
+    background: white;
+    margin-top: -4px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+/* #value{
+  position:absolute;
+  margin-left:35.3%;
+  margin-top:2%;
+  z-index:1;
+  padding-bottom:5px;
+} 
+*/
+/* start */
+
+/* end */
+
+#check1:not(:checked),#check2:not(:checked),#check3:not(:checked) {
+  background-color:white;
+  border:1px solid black;
+}
+
+
+#check1:checked,#check2:checked {
+  background-color:#0c6b29;
+  border:1px solid black;
+}
+
+
+#check1,#check2,#check3{
+ 
+  height:40px;
+  width:100px;
+}
+
+#check3:checked {
+  background-color:red;
+  border:1px solid black;
+}
+
+/* position */
+datalist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* writing-mode: vertical-lr; */
+  width: 200px;
+}
+
+
+.wrapper .main_container{
+  width: (100% - 200px);
+  margin-top: 70px;
+  margin-left: 200px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.wrapper .main_container .item{
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  font-size: 14px;
+  line-height: 22px;
+  border-radius: 5px;
+}
+
+
+.wrapper.collapse .main_container{
+  width: (100% - 70px);
+  margin-left: 70px;
+}
+
+
+/*----------------------------------------------------------End of Abdelkrim's part--------------------------------------------------------------------------- */

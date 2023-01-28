@@ -1,3 +1,6 @@
+/*------------------------------------------------------------------- Abdelkrim's part--------------------------------------------------------------------------------------------------------------- */
+
+
 const menuIconButton = document.querySelector("[data-menu-icon-btn]")
 const sidebar = document.querySelector("[data-sidebar]")
 
@@ -31,3 +34,4 @@ function makeElementActive(element){
 
 fetch('https://api.tomorrow.io/v4/timelines?location=40.75872069597532,-73.98529171943665&fields=temperature&timesteps=1h&units=metric&apikey=fm1KDI2uOx3QAEqywXTjxbM4DUEensk1').then(data=>data.json()).then(data=>console.log(data))
 
+/*----------------------------------------------------------End of Abdelkrim's part--------------------------------------------------------------------------- */
