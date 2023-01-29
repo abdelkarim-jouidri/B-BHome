@@ -255,16 +255,18 @@ img{
   align-items: center;
 }
 
-.logo-img{
+/* .logo-img{
   width: 50%;
   height: 100px;
-}
+} */
 @media screen and (max-width:500px) {
   .Container{
     flex-direction: column;
 
   }
-
+img{
+  width: 80px;
+}
   
   .sidebar.open{
     /* height: 0; */
@@ -329,6 +331,11 @@ img{
 
   .wrapper .main_Container{
     padding: 0 !important;
+  }
+
+  .ww-box{
+    flex-direction: column !important;
+    
   }
 }
 
@@ -407,6 +414,73 @@ img{
 
 body{
   background: #e1ecf2;
+}
+
+.logout{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.current-temp{
+  margin: 0 !important;
+  width:  auto !important;
+}
+
+.weather {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ww-box{
+  height: 80px;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center;
+  flex-direction: row ;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  gap: 10px;
+}
+
+.ww_source{
+  display: none !important;
+}
+
+.ww_name{
+  margin: 0 !important;
+  color: black;
+}
+
+.ww_current{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: black;
+  width: 140px;
+}
+
+.ww_temp{
+  font-size: 25px !important;
+}
+
+.ww_cond{
+  margin: 0 !important;
+  display: none !important;
+}
+.ww_icon{
+  width: auto !important;
+  margin: 0 !important;
+}
+
+.ww_icon svg g path {
+  stroke:#9d9999 !important;
+}
+
+#ww_559fdfef1145e{
+  background-color: white !important;
+  background-image: none !important;
 }
 
 .wrapper{

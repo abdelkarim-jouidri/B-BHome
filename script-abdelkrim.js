@@ -1,6 +1,5 @@
 /*------------------------------------------------------------------- Abdelkrim's part--------------------------------------------------------------------------------------------------------------- */
 
-
 const menuIconButton = document.querySelector("[data-menu-icon-btn]")
 const sidebar = document.querySelector("[data-sidebar]")
 
