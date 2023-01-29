@@ -62,4 +62,11 @@ body {
 }
 .owl-dots .owl-dot.active {
   background: #f44336 !important;
-}<gwmw style="display:none;"><gwmw style="display:none;"><gwmw style="display:none;"><gwmw style="display:none;"><gwmw style="display:none;"><gwmw style="display:none;"><gwmw style="display:none;"><gwmw style="display:none;"><gwmw style="display:none;"><gwmw style="display:none;"><gwmw style="display:none;"></gwmw><gwmw style="display:none;"></gwmw></gwmw><gwmw style="display:none;"></gwmw></gwmw></gwmw><gwmw style="display:none;"></gwmw></gwmw></gwmw></gwmw><gwmw style="display:none;">
+}
+
+.card{
+  margin-top: 20px !important;
+  width: 90% !important;
+  height: 22% !important;
+  z-index: -1 !important;
+}
