@@ -17,7 +17,7 @@ session_start();
 
         $_SESSION['login_success'] = $user[0];
           
-        header("Location: azize.html");
+        header("Location: index.html");
     } else {
         header("Location: login.html");
     }
