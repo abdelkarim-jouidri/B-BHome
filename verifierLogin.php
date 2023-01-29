@@ -15,7 +15,7 @@ session_start();
 
      if (count($user) > 0) {
 
-        $_SESSION['login_success'] = $user[0];
+        $_SESSION['utilisateur'] = $user[0];
           
         header("Location: azize.html");
     } else {

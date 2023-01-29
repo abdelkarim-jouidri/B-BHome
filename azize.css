@@ -44,7 +44,7 @@ body{
   margin-right: 6px;
 }
 .margin-right-120{
-  margin-right:30px;
+  margin-right: 48px;
 }
 .padding-right-46{
   padding-right: 46px;
@@ -95,12 +95,12 @@ input[type=range]:focus {
 /* end */
 
 #check1:not(:checked),#check2:not(:checked),#check3:not(:checked) {
-  background-color:white;
+  background-color:red;
   border:1px solid black;
 }
 
 
-#check1:checked,#check2:checked {
+#check1:checked,#check2:checked,#check3:checked {
   background-color:#0c6b29;
   border:1px solid black;
 }
@@ -111,11 +111,27 @@ input[type=range]:focus {
   height:40px;
   width:100px;
 }
-
-#check3:checked {
+.form-switch .form-check-input:checked {
+  background-color: green!important;
+  border-color: green!important;
+  border: none!important;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>")!important;
+}
+.form-switch .form-check-input:not(:checked) {
+  background-color: red!important;
+  border-color: green!important;
+  border: none!important;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>")!important;
+}
+input[type=checkbox] {
+  
+    border: 1px green black !important;
+   
+}
+/* #check3:checked {
   background-color:red;
   border:1px solid black;
-}
+} */
 
 /* position */
 datalist {
