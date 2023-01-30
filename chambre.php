@@ -68,9 +68,9 @@ require_once('connDb.php');
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-  <link rel="stylesheet" href="azize.css">
-  <link rel="stylesheet" href="abdelkrim-styles.css">
-  <script src="script-abdelkrim.js" defer></script>
+  <link rel="stylesheet" href="css/helper.css">
+  <link rel="stylesheet" href="css/main-styles.css">
+  <script src="js/main-script.js" defer></script>
 </head>
 <body>
   <!----------------------------------------------------------------------- nav bar ------------------------------------------------------------->
@@ -80,7 +80,7 @@ require_once('connDb.php');
         <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="menu-icon"><g ><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></g></svg>
       </button>
       <div class="logo-img">
-        <img src="logo-iot-removebg-preview.png" alt="">
+        <img src="images/logo-iot-removebg-preview.png" alt="">
       </div>
     </div>
     <div class="weather">
@@ -155,10 +155,10 @@ require_once('connDb.php');
     
     <!-- /*------------------------------------------------------------------- Aziz's part---------------------------------------------------------------------------------------------------------------> 
           <div class="wrapper">
-              <div class="carousel " style="  ">
+              <div class="carousel " style="">
                 <div class="carousel-cell c-1 me-5 fw-bold" ><a style="text-decoration: none; color: black; " href="chambre.html">Chambre</a></div>
-                <div class="carousel-cell c-2 me-5"><a style="text-decoration: none; color: black; " href="ajoutePiece.html">Ajouter une piece</a></div>
-                <div class="carousel-cell c-3"><a style="text-decoration: none; color: black;" href="cuisine.html">Cuisine</a></div>
+                <div class="carousel-cell c-2 me-5 opacity-25"><a style="text-decoration: none; color: black; " href="ajoutePiece.html">Ajouter une piece</a></div>
+                <div class="carousel-cell c-3 opacity-25"><a style="text-decoration: none; color: black;" href="cuisine.html">Cuisine</a></div>
               </div>
                 
 
@@ -169,7 +169,7 @@ require_once('connDb.php');
 
           
 
-            <div class="alert alert-danger text-center fw-bold d-none" id="alert-allumer" role="alert">
+            <div class="alert alert-danger text-center fw-bold d-none" id="alert-allumer" role="alert" style="  ">
               Pensez à allumer le chauffage ! 
             </div> 
 
@@ -186,7 +186,7 @@ require_once('connDb.php');
                 <!-- 1 logo -->
                 <div class="first-logo border  border-2 border-secondary rounded  p-3 mt-1 mr-1 d-flex justify-content-between align-item-center">
                   
-                  <div><img class="logos-icon-img" src="logo1.png"/></div>
+                  <div><img class="logos-icon-img" src="images/logo1.png"/></div>
                   <div class="pt-4  ">
                     <div class="font-weight-bold text-icon d-flex justify-content-between fs-4">
 
@@ -198,7 +198,7 @@ require_once('connDb.php');
                 <!-- 2 logo -->
 
                 <div class="second-logo border border-2 border-secondary rounded  p-3 mt-1 mr-1 d-flex justify-content-between align-item-center">
-                  <div><img class="logos-icon-img" src="logo2.png"/></div>
+                  <div><img class="logos-icon-img" src="images/logo2.png"/></div>
                   <div class="pt-4  ">
                     
                     <div class="font-weight-bold text-icon d-flex justify-content-between fs-4">
@@ -211,7 +211,7 @@ require_once('connDb.php');
                 </div>
                 <!-- 3 logo -->
                 <div class="third-logo border border-2 border-secondary rounded  p-3 mt-1 d-flex justify-content-between align-item-center">
-                  <div><img class="logos-icon-img" src="logo3-removebg-preview.png"/></div>
+                  <div><img class="logos-icon-img" src="images/logo3-removebg-preview.png"/></div>
                   <div class="pt-4 ">
                     <div class="font-weight-bold text-icon d-flex justify-content-between fs-4">
                     <span class="me-1"><?= $luminosite_int[0]['valeur'];?></span>
@@ -388,6 +388,11 @@ require_once('connDb.php');
         $('.c-1').addClass('fw-bold');
         $('.c-2').removeClass('fw-bold');
         $('.c-3').removeClass('fw-bold');
+        $('.c-1').removeClass('opacity-25');
+
+        $('.c-2').addClass('opacity-25');
+        $('.c-3').addClass('opacity-25');
+        
 
         $('.c-1').addClass('fs-6');
     }
@@ -395,15 +400,22 @@ require_once('connDb.php');
         $('.c-2').addClass('fw-bold');
         $('.c-1').removeClass('fw-bold');
         $('.c-3').removeClass('fw-bold');
+        $('.c-2').removeClass('opacity-25');
 
         $('.c-2').addClass('fs-6');
         $('.c-1').removeClass('fs-6');
         $('.c-3').removeClass('fs-6');
+        $('.c-1').addClass('opacity-25');
+        $('.c-3').addClass('opacity-25');
     }
     if(flkty.selectedIndex==2){
         $('.c-3').addClass('fw-bold');
+        $('.c-3').removeClass('opacity-25');
         $('.c-2').removeClass('fw-bold');
         $('.c-1').removeClass('fw-bold');
+
+        $('.c-2').addClass('opacity-25');
+        $('.c-1').addClass('opacity-25');
 
         $('.c-3').addClass('fs-6');
         $('.c-2').removeClass('fs-6');
