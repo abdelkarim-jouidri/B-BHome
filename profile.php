@@ -25,13 +25,12 @@
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
   integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="owlfolder/css/owl.carousel.min.css">
 
   <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
+ 
 
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -81,18 +80,7 @@
               <div class="hidden-sidebar sidebar-link-text ">Historique</div>
             </a>
           </li>
-          <!-- <li class="sidebar-list-item activated" onclick="makeElementActive(this)">
-            <a href="#" class="sidebar-link">
-              <svg class="sidebar-icon activated" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"  >
-                  <g >
-                      <path d="M10,20h4c0,1.1-0.9,2-2,2S10,21.1,10,20z M20,17.35V19H4v-1.65l2-1.88v-5.15c0-2.92,1.56-5.22,4-5.98V3.96 c0-1.42,1.49-2.5,2.99-1.76C13.64,2.52,14,3.23,14,3.96l0,0.39c2.44,0.75,4,3.06,4,5.98v5.15L20,17.35z M19,17.77l-2-1.88v-5.47 c0-2.47-1.19-4.36-3.13-5.1c-1.26-0.53-2.64-0.5-3.84,0.03C8.15,6.11,7,7.99,7,10.42v5.47l-2,1.88V18h14V17.77z" >
-              
-                      </path>
-                  </g>
-              </svg>
-              <div class="hidden-sidebar sidebar-link-text activated">Alertes</div>
-            </a>
-          </li> -->
+    
           <li class="sidebar-list-item activated" onclick="makeElementActive(this)">
             <a href="profile.html" class="sidebar-link activated">
               <svg  xmlns="http://www.w3.org/2000/svg" width="35px" height="25px" viewBox="0 0 48 48">
@@ -125,11 +113,6 @@
                     </div>
                     <form action="modifierProfile.php" method="POST">
                     <div class="row mt-2">
-                        <!-- <div class="col-md-12"><label class="labels">Nom</label><input type="text" class="form-control" readonly="readonly" value="AZIZ"></div> -->
-                        <!-- <div class="col-md-12"><label class="labels">Prénom</label><input type="text" class="form-control" readonly="readonly" value="HATHOUT" ></div> -->
-                  
-                 
-                        <!-- <div class="col-md-12"><label class="labels">Date de naissance</label><input type="date" class="form-control" readonly="readonly"  value="1998-11-11"></div> -->
                         <div class="col-md-12"><label class="labels">Adresse mail</label><input type="email" name="email" class="form-control" readonly="readonly" value="<?= $utilisateur[0]['adresse_mail']?>"></div>
                         <div class="col-md-12"><label class="labels">Mot de passe</label><input type="text" name="mdp" class="form-control update" readonly="readonly" value="<?= $utilisateur[0]['mdp']?>"></div>
                         <div class="col-md-12"><label class="labels">Adresse</label><input type="text" name="adresse" class="form-control update" readonly="readonly" value="<?= $utilisateur[0]['adresse']?>"></div>
@@ -154,12 +137,6 @@
     </div>
     </div>
     </div>
-  <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
-  <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
-  
-  <!-- /*------------------------------------------------------------------- Aziz's part---------------------------------------------------------------------------------------------------------------> 
-       
-    <!-- /*------------------------------------------------------------------- End ofAziz's part---------------------------------------------------------------------------------------------------------------> 
 
     </main>
   </div>
@@ -234,82 +211,10 @@ function drawChart() {
     console.log( 'Flickity select ' + flkty.selectedIndex )
   });
 
-//temp
-// var slider_temp = document.getElementById("input-temperature");
-// var value_temp = document.getElementById("temperature-value");
-
-// value_temp.innerHTML = slider_temp.value+'°C'; 
-// slider_temp.oninput = function() {
-// value_temp.innerHTML = this.value+'°C';
-// }
-
-
-// //humidite
-// var slider_humidite = document.getElementById("input-humidite");
-// var value_humidite = document.getElementById("humidite-value");
-
-// value_humidite.innerHTML = slider_humidite.value+'%'; 
-// slider_humidite.oninput = function() {
-//   value_humidite.innerHTML = this.value+'%';
-// }
-// //luminosite
-// var slider_luminosite = document.getElementById("input-luminosite");
-// var value_luminosite = document.getElementById("luminosite-value");
-
-// value_luminosite.innerHTML = slider_luminosite.value+'%'; 
-// slider_luminosite.oninput = function() {
-//   value_luminosite.innerHTML = this.value+'%';
-// }
-// //eclairage
-// var slider_eclairage = document.getElementById("input-eclairage");
-// var value_eclairage = document.getElementById("eclairage-value");
-
-// value_eclairage.innerHTML = slider_eclairage.value+'%'; 
-// slider_eclairage.oninput = function() {
-//   value_eclairage.innerHTML = this.value+'%';
-// }
-
-// //volets
-
-// var slider_volets = document.getElementById("input-volets");
-// var value_volets = document.getElementById("volets-value");
-
-// value_volets.innerHTML = slider_volets.value+'%'; 
-// slider_volets.oninput = function() {
-//   value_volets.innerHTML = this.value+'%';
-// }
-// // cdt of alerts
-
-// let tempConsigne = slider_temp.value;
-// let tempMesure = document.getElementById("temp-mesure").innerHTML;
- 
-//  console.log(tempMesure);
-//  console.log(tempConsigne);
-//  if(tempMesure < tempConsigne + 0.5){
-//   if(document.getElementById("check1").checked == false ){
-//     document.getElementById("alert-allumer").classList.remove('d-none');
-
-//   }
-  
-//  }
-//  else if(tempMesure > tempConsigne + 0.5){
-//   if(document.getElementById("check1").checked == true){
-
-//   document.getElementById("alert-chauffage").classList.remove('d-none');
-//   }
-
-
-//  }
-//  console.log(document.getElementById("check1").checked);
-
 
  
 })
   </script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script> 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
-  <script src="owlfolder/js/owl.carousel.min.js"></script>
-  <script src="owlfolder/js/script.js"></script>
+ 
 </body>
 </html>
