@@ -17,9 +17,9 @@ session_start();
 
         $_SESSION['utilisateur'] = $user[0];
           
-        header("Location: index.html");
+        header("Location: chambre.php");
     } else {
-        header("Location: login.html");
+        header("Location: login.php");
     }
  }
 

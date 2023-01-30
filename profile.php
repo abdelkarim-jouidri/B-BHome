@@ -25,18 +25,18 @@
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
   integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="owlfolder/css/owl.carousel.min.css">
 
   <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
+ 
 
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
+  <link rel="stylesheet" href="css/helper.css">
   <link rel="stylesheet" href="css/main-styles.css">
   <script src="js/main-script.js" defer></script>
 </head>
@@ -59,7 +59,9 @@
       </svg> -->
     </div>
     <div class="logout">
-      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M400 54.1c63 45 104 118.6 104 201.9c0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4C7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31c-41.5 30.8-68 79.6-68 134.9c-.1 92.3 74.5 168.1 168 168.1c91.6 0 168.6-74.2 168-169.1c-.3-51.8-24.7-101.8-68.1-134c-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"/></svg>
+      <a class="logout-link" href="login.php"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512"><path fill="red" d="M400 54.1c63 45 104 118.6 104 201.9c0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4C7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31c-41.5 30.8-68 79.6-68 134.9c-.1 92.3 74.5 168.1 168 168.1c91.6 0 168.6-74.2 168-169.1c-.3-51.8-24.7-101.8-68.1-134c-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"/></svg>
+      </a>
     </div>
   </header>
   <!----------------------------------------------------------------------- End of nav bar ------------------------------------------------------>
@@ -70,31 +72,20 @@
       <div class="middle-sidebar">
         <ul class="sidebar-list">
           <li class="sidebar-list-item " onclick="makeElementActive(this)">
-            <a href="#" id="home-link" class="sidebar-link ">
+            <a href="chambre.php" id="home-link" class="sidebar-link ">
               <svg class="sidebar-icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" ><g ><path d="M4,10V21h6V15h4v6h6V10L12,3Z" ></path></g></svg>
               <div class="hidden-sidebar sidebar-link-text">accueil</div>
             </a>
           </li>
           <li class="sidebar-list-item " onclick="makeElementActive(this)">
-            <a href="#" class="sidebar-link">
+            <a href="historique.php" class="sidebar-link">
               <svg class="sidebar-icon"viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"  ><g ><path d="M14.97,16.95L10,13.87V7h2v5.76l4.03,2.49L14.97,16.95z M12,2C8.73,2,5.8,3.44,4,5.83V3.02H2V9h6V7H5.62 C7.08,5.09,9.36,4,12,4c4.41,0,8,3.59,8,8s-3.59,8-8,8s-8-3.59-8-8H2c0,5.51,4.49,10,10,10s10-4.49,10-10S17.51,2,12,2z" ></path></g></svg>   
               <div class="hidden-sidebar sidebar-link-text ">Historique</div>
             </a>
           </li>
-          <!-- <li class="sidebar-list-item activated" onclick="makeElementActive(this)">
-            <a href="#" class="sidebar-link">
-              <svg class="sidebar-icon activated" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"  >
-                  <g >
-                      <path d="M10,20h4c0,1.1-0.9,2-2,2S10,21.1,10,20z M20,17.35V19H4v-1.65l2-1.88v-5.15c0-2.92,1.56-5.22,4-5.98V3.96 c0-1.42,1.49-2.5,2.99-1.76C13.64,2.52,14,3.23,14,3.96l0,0.39c2.44,0.75,4,3.06,4,5.98v5.15L20,17.35z M19,17.77l-2-1.88v-5.47 c0-2.47-1.19-4.36-3.13-5.1c-1.26-0.53-2.64-0.5-3.84,0.03C8.15,6.11,7,7.99,7,10.42v5.47l-2,1.88V18h14V17.77z" >
-              
-                      </path>
-                  </g>
-              </svg>
-              <div class="hidden-sidebar sidebar-link-text activated">Alertes</div>
-            </a>
-          </li> -->
+    
           <li class="sidebar-list-item activated" onclick="makeElementActive(this)">
-            <a href="profile.html" class="sidebar-link activated">
+            <a href="profile.php" class="sidebar-link activated">
               <svg  xmlns="http://www.w3.org/2000/svg" width="35px" height="25px" viewBox="0 0 48 48">
                 <g fill="currentColor">
                   <path fill-rule="evenodd" d="M24 42c9.941 0 18-8.059 18-18S33.941 6 24 6S6 14.059 6 24s8.059 18 18 18Zm0 2c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z" clip-rule="evenodd"/>
@@ -125,11 +116,6 @@
                     </div>
                     <form action="modifierProfile.php" method="POST">
                     <div class="row mt-2">
-                        <!-- <div class="col-md-12"><label class="labels">Nom</label><input type="text" class="form-control" readonly="readonly" value="AZIZ"></div> -->
-                        <!-- <div class="col-md-12"><label class="labels">Prénom</label><input type="text" class="form-control" readonly="readonly" value="HATHOUT" ></div> -->
-                  
-                 
-                        <!-- <div class="col-md-12"><label class="labels">Date de naissance</label><input type="date" class="form-control" readonly="readonly"  value="1998-11-11"></div> -->
                         <div class="col-md-12"><label class="labels">Adresse mail</label><input type="email" name="email" class="form-control" readonly="readonly" value="<?= $utilisateur[0]['adresse_mail']?>"></div>
                         <div class="col-md-12"><label class="labels">Mot de passe</label><input type="text" name="mdp" class="form-control update" readonly="readonly" value="<?= $utilisateur[0]['mdp']?>"></div>
                         <div class="col-md-12"><label class="labels">Adresse</label><input type="text" name="adresse" class="form-control update" readonly="readonly" value="<?= $utilisateur[0]['adresse']?>"></div>
@@ -154,12 +140,6 @@
     </div>
     </div>
     </div>
-  <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
-  <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
-  
-  <!-- /*------------------------------------------------------------------- Aziz's part---------------------------------------------------------------------------------------------------------------> 
-       
-    <!-- /*------------------------------------------------------------------- End ofAziz's part---------------------------------------------------------------------------------------------------------------> 
 
     </main>
   </div>
@@ -234,82 +214,10 @@ function drawChart() {
     console.log( 'Flickity select ' + flkty.selectedIndex )
   });
 
-//temp
-// var slider_temp = document.getElementById("input-temperature");
-// var value_temp = document.getElementById("temperature-value");
-
-// value_temp.innerHTML = slider_temp.value+'°C'; 
-// slider_temp.oninput = function() {
-// value_temp.innerHTML = this.value+'°C';
-// }
-
-
-// //humidite
-// var slider_humidite = document.getElementById("input-humidite");
-// var value_humidite = document.getElementById("humidite-value");
-
-// value_humidite.innerHTML = slider_humidite.value+'%'; 
-// slider_humidite.oninput = function() {
-//   value_humidite.innerHTML = this.value+'%';
-// }
-// //luminosite
-// var slider_luminosite = document.getElementById("input-luminosite");
-// var value_luminosite = document.getElementById("luminosite-value");
-
-// value_luminosite.innerHTML = slider_luminosite.value+'%'; 
-// slider_luminosite.oninput = function() {
-//   value_luminosite.innerHTML = this.value+'%';
-// }
-// //eclairage
-// var slider_eclairage = document.getElementById("input-eclairage");
-// var value_eclairage = document.getElementById("eclairage-value");
-
-// value_eclairage.innerHTML = slider_eclairage.value+'%'; 
-// slider_eclairage.oninput = function() {
-//   value_eclairage.innerHTML = this.value+'%';
-// }
-
-// //volets
-
-// var slider_volets = document.getElementById("input-volets");
-// var value_volets = document.getElementById("volets-value");
-
-// value_volets.innerHTML = slider_volets.value+'%'; 
-// slider_volets.oninput = function() {
-//   value_volets.innerHTML = this.value+'%';
-// }
-// // cdt of alerts
-
-// let tempConsigne = slider_temp.value;
-// let tempMesure = document.getElementById("temp-mesure").innerHTML;
- 
-//  console.log(tempMesure);
-//  console.log(tempConsigne);
-//  if(tempMesure < tempConsigne + 0.5){
-//   if(document.getElementById("check1").checked == false ){
-//     document.getElementById("alert-allumer").classList.remove('d-none');
-
-//   }
-  
-//  }
-//  else if(tempMesure > tempConsigne + 0.5){
-//   if(document.getElementById("check1").checked == true){
-
-//   document.getElementById("alert-chauffage").classList.remove('d-none');
-//   }
-
-
-//  }
-//  console.log(document.getElementById("check1").checked);
-
 
  
 })
   </script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script> 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
-  <script src="owlfolder/js/owl.carousel.min.js"></script>
-  <script src="owlfolder/js/script.js"></script>
+ 
 </body>
 </html>
