@@ -55,6 +55,7 @@ require_once('connDb.php');
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="azize.css">
+  <link rel="stylesheet" href="abdelkrim-styles.css">
 <!-- Include the Flickity CSS -->
 <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
@@ -71,11 +72,13 @@ require_once('connDb.php');
 
   <div class="wrapper">
 
-    <div class="carousel " style="    margin-left: 200px; margin-top: 100px;">
-      <div class="carousel-cell c-1 me-5">Ajoute piece</div>
-      <div class="carousel-cell c-2 me-5" >Chambre</div>
-      <div class="carousel-cell c-3">Cuisine</div>
-    </div>
+        <div class="carousel " style="  ">
+          <div class="carousel-cell c-1 me-5 fw-bold" ><a style="text-decoration: none; color: black; " href="chambre.html">Chambre</a></div>
+          <div class="carousel-cell c-2 me-5"><a style="text-decoration: none; color: black; " href="ajoutePiece.html">Ajouter une piece</a></div>
+          <div class="carousel-cell c-3"><a style="text-decoration: none; color: black;" href="cuisine.html">Cuisine</a></div>
+        </div>
+           
+
 
     <div id="app"></div>
 
