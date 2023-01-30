@@ -297,26 +297,37 @@ require_once('connDb.php');
                 
                 <div class="margin-right-120 fw-bold">Chauffage  </div>
                 <div class="form-check form-switch margin-right-120">
-                  <input   class="form-check-input padding-right-46" type="checkbox" id="check1" >
+                  <input   class="form-check-input padding-right-46" type="checkbox" id="check1"
+                 
+                  <?php if($etat[0]['etat_chauffage']==1){
+                  echo 'checked';}
+                  ?>
+                  >
+                  
                   <!-- <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> -->
                 </div>
             </div>
 
-            <div class="VMC p-2 d-flex justify-content-around align-item-center">
-              <div  class="margin-right-120 fw-bold">VMC  </div>
+            <div class="Eclairage p-2 d-flex justify-content-around align-item-center">
+              <div  class="margin-right-120 fw-bold">Eclairage </div>
               <div class="form-check form-switch ms-5  margin-right-120 ">
-                <input  class="form-check-input padding-right-46" type="checkbox" id="check2" >
+                <input  class="form-check-input padding-right-46" type="checkbox" id="check2" 
+                <?php if ($etat[0]['etat_eclairage'] == 1) {
+                  echo 'checked';
+                }
+                  ?>
+                >
                 <!-- <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> -->
               </div>
             </div>
 
-            <div class="Eclairage p-2 d-flex justify-content-around align-item-center">
-              <div style="margin-right: -2px;" class="margin-right-114 fw-bold">Eclairage  </div>
+            <div class="VMC p-2 d-flex justify-content-around align-item-center">
+              <div style="margin-right: -2px;" class="margin-right-114 fw-bold"> VMC </div>
               <div class="range ">
-                <input type="range" class="form-range" value="<?=$etat[0]['etat_eclairage'];?>" id="input-eclairage" min="0" max="100"/>
+                <input type="range" class="form-range" value="<?=$etat[0]['etat_vmc'];?>" id="input-vmc" min="0" max="100"/>
                 <datalist id="values">
                   <option class="fw-bold" value="0" label="0%"></option>
-                  <div class="text-cente fw-bold fs-6" id="eclairage-value"></div>
+                  <div class="text-cente fw-bold fs-6" id="vmc-value"></div>
                   <option class="fw-bold" value="100" label="100%"></option>
                 </datalist>
               </div>
@@ -345,7 +356,11 @@ require_once('connDb.php');
                 
                 <!-- <div class="margin-right-120 fw-bold">Chauffage  </div> -->
                 <div class="form-check form-switch ">
-                  <input   class="form-check-input padding-right-46" type="checkbox" id="check3" >
+                  <input   class="form-check-input padding-right-46" type="checkbox" id="check3"
+                  <?php if($etat[0]['etat_absence']==1){
+                  echo 'checked';}
+                  ?>
+                  >
                   <!-- <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> -->
                 </div>
             </div>
@@ -360,42 +375,11 @@ require_once('connDb.php');
 
   <script>
     
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-  // Create the data table
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Year');
-  data.addColumn('number', 'Sales');
-  data.addRows([
-    ['2004', 1000],
-    ['2005', 1170],
-    ['2006', 660],
-    ['2007', 1030]
-  ]);
-
-  // Set chart options
-  var options = {'title':'Company Performance',
-                 'width':400,
-                 'height':300};
-
-  // Create the chart
-  var chart1 = new google.visualization.BarChart(document.getElementById('chart_div'));
-  var chart2 = new google.visualization.LineChart(document.getElementById('chart_div1'));
-  var chart3= new google.visualization.ScatterChart(document.getElementById('chart_div2'));
-  chart1.draw(data, options);
-  chart2.draw(data, options);
-  chart3.draw(data, options);
-}
-
-
-
-
-
-
 
  $(document).ready(function(){
+
+
+
   // carousel
   var flkty = new Flickity( '.carousel', {});
   flkty.selectedIndex
@@ -440,13 +424,22 @@ function drawChart() {
     console.log( 'Flickity select ' + flkty.selectedIndex )
   });
 
-
+// temperature
 var slider_temp = document.getElementById("input-temperature");
 var value_temp = document.getElementById("temperature-value");
 
 value_temp.innerHTML = slider_temp.value+'°C'; 
 slider_temp.oninput = function() {
 value_temp.innerHTML = this.value+'°C';
+ 
+$.ajax({
+    type: "POST",
+    url: 'ajaxValues.php',
+    data:{temp_value:this.value},
+    success: function(response){
+        console.log(response);
+    }
+  });
 }
 
 
@@ -457,6 +450,16 @@ var value_humidite = document.getElementById("humidite-value");
 value_humidite.innerHTML = slider_humidite.value+'%'; 
 slider_humidite.oninput = function() {
   value_humidite.innerHTML = this.value+'%';
+
+  $.ajax({
+    type: "POST",
+    url: 'ajaxValues.php',
+    data:{humidite_value:this.value},
+    success: function(response){
+        console.log(response);
+    }
+  });
+
 }
 //luminosite
 var slider_luminosite = document.getElementById("input-luminosite");
@@ -465,14 +468,33 @@ var value_luminosite = document.getElementById("luminosite-value");
 value_luminosite.innerHTML = slider_luminosite.value+'%'; 
 slider_luminosite.oninput = function() {
   value_luminosite.innerHTML = this.value+'%';
+  $.ajax({
+    type: "POST",
+    url: 'ajaxValues.php',
+    data:{luminosite_value:this.value},
+    success: function(response){
+        console.log(response);
+    }
+  });
 }
 //eclairage
-var slider_eclairage = document.getElementById("input-eclairage");
-var value_eclairage = document.getElementById("eclairage-value");
+var slider_vmc = document.getElementById("input-vmc");
+var value_vmc = document.getElementById("vmc-value");
 
-value_eclairage.innerHTML = slider_eclairage.value+'%'; 
-slider_eclairage.oninput = function() {
-  value_eclairage.innerHTML = this.value+'%';
+value_vmc.innerHTML = slider_vmc.value+'%'; 
+slider_vmc.oninput = function() {
+  value_vmc.innerHTML = this.value+'%';
+  console.log(this.value)
+
+  $.ajax({
+    type: "POST",
+    url: 'ajaxValues.php',
+    data:{vmc_value:this.value},
+    success: function(response){
+        console.log(response);
+    }
+  });
+
 }
 
 //volets
@@ -483,7 +505,64 @@ var value_volets = document.getElementById("volets-value");
 value_volets.innerHTML = slider_volets.value+'%'; 
 slider_volets.oninput = function() {
   value_volets.innerHTML = this.value+'%';
+
+  $.ajax({
+    type: "POST",
+    url: 'ajaxValues.php',
+    data:{volet_value:this.value},
+    success: function(response){
+        console.log(response);
+    }
+  });
 }
+// check 1 #
+$('#check1').change(function() {
+    
+  
+        $.ajax({
+    type: "POST",
+    url: 'ajaxValues.php',
+    data:{etat_checked1:this.checked},
+    success: function(response){
+        console.log(response);
+    }
+  });
+
+    
+});
+// check 2 #
+$('#check2').change(function() {
+    
+  
+    $.ajax({
+type: "POST",
+url: 'ajaxValues.php',
+data:{etat_checked2:this.checked},
+success: function(response){
+    console.log(response);
+}
+});
+
+
+});
+
+// check 3
+$('#check3').change(function() {
+    
+  $.ajax({
+type: "POST",
+url: 'ajaxValues.php',
+data:{etat_checked3:this.checked},
+success: function(response){
+    console.log(response);
+}
+});
+
+
+});
+
+
+
 // cdt of alerts
 
 let tempConsigne = slider_temp.value;
@@ -506,7 +585,7 @@ let tempMesure = document.getElementById("temp-mesure").innerHTML;
 
 
  }
- console.log(document.getElementById("check1").checked);
+ 
 
 
  
