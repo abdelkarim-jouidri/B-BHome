@@ -43,6 +43,15 @@ require_once('connDb.php');
 
     $temperature_ext=$stmt->fetchAll();
 
+    // luminosite
+    $stmt = $conn->prepare("SELECT * FROM luminosite WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $luminosite_chart=$stmt->fetchAll();
+// print_r($luminosite_chart);
+ 
+
 
 ?>
 
@@ -368,13 +377,55 @@ require_once('connDb.php');
           </div>
             </div>
           <!-- /*------------------------------------------------------------------- End ofAziz's part---------------------------------------------------------------------------------------------------------------> 
-
+<div id="chart_div"></div>
           </main>
   </div>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-  <script>
-    
+    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+
+<script>
+  
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+// Create the data table
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'Year');
+data.addColumn('number', 'Sales');
+<?php
+// foreach($luminosite_chart as $lum_chart){
+//   $a=$lum_chart['horodatage'];
+//   $b=$lum_chart['valeur'];
+
+
+//   }
+var_dump($luminosite_chart[0]['horodatage'])
+  ?>
+data.addRows([
+  [$a, $b],
+  ['2005', 1170],
+  ['2006', 660],
+  ['2007', 1030]
+]);
+
+// Set chart options
+var options = {
+  'title':'Company Performance',
+               'width':400,
+               'height':300};
+
+// Create the chart
+// var chart1 = new google.visualization.BarChart(document.getElementById('chart_div'));
+var chart1 = new google.visualization.LineChart(document.getElementById('chart_div'));
+// var chart3= new google.visualization.ScatterChart(document.getElementById('chart_div2'));
+chart1.draw(data, options);
+
+}
+
+
+
 
  $(document).ready(function(){
 
