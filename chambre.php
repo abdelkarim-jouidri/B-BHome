@@ -155,7 +155,7 @@ require_once('connDb.php');
     
     <!-- /*------------------------------------------------------------------- Aziz's part---------------------------------------------------------------------------------------------------------------> 
           <div class="wrapper">
-              <div class="carousel " style="  ">
+              <div class="carousel " style="z-index:-1;  ">
                 <div class="carousel-cell c-1 me-5 fw-bold" ><a style="text-decoration: none; color: black; " href="chambre.html">Chambre</a></div>
                 <div class="carousel-cell c-2 me-5"><a style="text-decoration: none; color: black; " href="ajoutePiece.html">Ajouter une piece</a></div>
                 <div class="carousel-cell c-3"><a style="text-decoration: none; color: black;" href="cuisine.html">Cuisine</a></div>
@@ -169,7 +169,7 @@ require_once('connDb.php');
 
           
 
-            <div class="alert alert-danger text-center fw-bold d-none" id="alert-allumer" role="alert">
+            <div class="alert alert-danger text-center fw-bold d-none" id="alert-allumer" role="alert" style="z-index:-1;  ">
               Pensez à allumer le chauffage ! 
             </div> 
 
