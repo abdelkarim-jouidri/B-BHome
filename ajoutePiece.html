@@ -21,8 +21,8 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-  <link rel="stylesheet" href="abdelkrim-styles.css">
-  <script src="script-abdelkrim.js" defer></script>
+  <link rel="stylesheet" href="css/main-styles.css">
+  <script src="js/main-script.js" defer></script>
 </head>
 <body>
   <!----------------------------------------------------------------------- nav bar ------------------------------------------------------------->
@@ -101,8 +101,8 @@
     <main class="content p-3 gap-3">
         <div class="carousel " style="  ">
             <div class="carousel-cell c-1 me-5 fw-bold"><a style="text-decoration: none; color: black;" href="ajoutePiece.html">Ajouter une piece</a></div>
-            <div class="carousel-cell c-2 me-5" ><a style="text-decoration: none; color: black;" href="chambre.html">Chambre</a></div>
-            <div class="carousel-cell c-3"><a style="text-decoration: none; color: black;" href="cuisine.html">Cuisine</a></div>
+            <div class="carousel-cell c-2 me-5 opacity-25" ><a style="text-decoration: none; color: black;" href="chambre.php">Chambre</a></div>
+            <div class="carousel-cell c-3 opacity-25"><a style="text-decoration: none; color: black;" href="cuisine.html">Cuisine</a></div>
           </div>
         <div class="container rounded bg-white mt-5 mb-5">
             <div class="row">
@@ -209,6 +209,11 @@ function drawChart() {
         $('.c-1').addClass('fw-bold');
         $('.c-2').removeClass('fw-bold');
         $('.c-3').removeClass('fw-bold');
+        $('.c-1').removeClass('opacity-25');
+
+        $('.c-2').addClass('opacity-25');
+        $('.c-3').addClass('opacity-25');
+        
 
         $('.c-1').addClass('fs-6');
     }
@@ -216,15 +221,22 @@ function drawChart() {
         $('.c-2').addClass('fw-bold');
         $('.c-1').removeClass('fw-bold');
         $('.c-3').removeClass('fw-bold');
+        $('.c-2').removeClass('opacity-25');
 
         $('.c-2').addClass('fs-6');
         $('.c-1').removeClass('fs-6');
         $('.c-3').removeClass('fs-6');
+        $('.c-1').addClass('opacity-25');
+        $('.c-3').addClass('opacity-25');
     }
     if(flkty.selectedIndex==2){
         $('.c-3').addClass('fw-bold');
+        $('.c-3').removeClass('opacity-25');
         $('.c-2').removeClass('fw-bold');
         $('.c-1').removeClass('fw-bold');
+
+        $('.c-2').addClass('opacity-25');
+        $('.c-1').addClass('opacity-25');
 
         $('.c-3').addClass('fs-6');
         $('.c-2').removeClass('fs-6');

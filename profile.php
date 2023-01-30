@@ -37,8 +37,8 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-  <link rel="stylesheet" href="abdelkrim-styles.css">
-  <script src="script-abdelkrim.js" defer></script>
+  <link rel="stylesheet" href="main-styles.css">
+  <script src="main-script.js" defer></script>
 </head>
 <body>
   <!----------------------------------------------------------------------- nav bar ------------------------------------------------------------->
