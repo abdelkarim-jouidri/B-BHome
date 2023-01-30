@@ -9,7 +9,6 @@ if(isset($_POST['modifier'])){
    $ville=$_POST['ville'];
    $tel=$_POST['tel'];
 
-//   echo $email;
    $stmt = $conn->prepare("
    UPDATE utilisateur SET
     `mdp`=?,`adresse`=?,
