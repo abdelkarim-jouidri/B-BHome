@@ -495,7 +495,7 @@ body{
   /* justify-content: center; */
 }
 
-.logout-link :hover{
+.logout-btn:hover{
   fill: red;
 }
 
