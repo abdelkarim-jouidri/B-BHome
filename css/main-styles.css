@@ -269,7 +269,7 @@ img{
   
   .sidebar.open{
     /* height: 0; */
-    width: 100vw;
+    width: 100%;
     background-color: white;
     border-bottom: 1px solid var(--light-gray);
     border-right: 0;
@@ -284,7 +284,7 @@ img{
   
   .sidebar{
     /* height: 0; */
-    width: 100vw;
+    width: 100%;
     background-color: white;
     border-bottom: 1px solid var(--light-gray);
     border-right: 0;
