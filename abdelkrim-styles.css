@@ -411,6 +411,10 @@ img{
   font-family: 'Montserrat', sans-serif;
 }
 
+.flickity-enabled{
+  width: 419px;
+}
+
 body{
   background: #e1ecf2;
 }
@@ -485,6 +489,18 @@ body{
 .wrapper{
   /* margin: 10px; */
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.logout-link :hover{
+  fill: red;
+}
+
+.carousel-cell a:hover{
+  color: #0c6b29;
 }
 
 /* logos img  */

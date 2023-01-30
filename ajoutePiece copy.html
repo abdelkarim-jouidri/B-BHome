@@ -1,4 +1,20 @@
+<?php
+// require_once('verifierLogin.php');
+// require_once('connDb.php');
+// // print_r( $_SESSION['utilisateur'])
+// $email= $_SESSION['utilisateur']['adresse_mail'];
 
+// $stmt = $conn->prepare("SELECT * FROM utilisateur WHERE adresse_mail = ?  ");
+
+// $stmt ->execute([$email]);
+
+// $utilisateur = $stmt->fetchAll();
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,10 +69,10 @@
     <aside class="sidebar" data-sidebar>
       <div class="middle-sidebar">
         <ul class="sidebar-list">
-          <li class="sidebar-list-item  activated" onclick="makeElementActive(this)">
-            <a href="#" id="home-link" class="sidebar-link  activated">
-              <svg class="sidebar-icon activated" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" ><g ><path d="M4,10V21h6V15h4v6h6V10L12,3Z" ></path></g></svg>
-              <div class="hidden-sidebar sidebar-link-text activated">accueil</div>
+          <li class="sidebar-list-item " onclick="makeElementActive(this)">
+            <a href="#" id="home-link" class="sidebar-link ">
+              <svg class="sidebar-icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" ><g ><path d="M4,10V21h6V15h4v6h6V10L12,3Z" ></path></g></svg>
+              <div class="hidden-sidebar sidebar-link-text">accueil</div>
             </a>
           </li>
           <li class="sidebar-list-item " onclick="makeElementActive(this)">
@@ -77,8 +93,8 @@
               <div class="hidden-sidebar sidebar-link-text activated">Alertes</div>
             </a>
           </li> -->
-          <li class="sidebar-list-item " onclick="makeElementActive(this)">
-            <a href="profile.html" class="sidebar-link ">
+          <li class="sidebar-list-item activated" onclick="makeElementActive(this)">
+            <a href="profile.html" class="sidebar-link activated">
               <svg  xmlns="http://www.w3.org/2000/svg" width="35px" height="25px" viewBox="0 0 48 48">
                 <g fill="currentColor">
                   <path fill-rule="evenodd" d="M24 42c9.941 0 18-8.059 18-18S33.941 6 24 6S6 14.059 6 24s8.059 18 18 18Zm0 2c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z" clip-rule="evenodd"/>
@@ -88,7 +104,7 @@
                   <path fill-rule="evenodd" d="M24 26a6 6 0 1 0 0-12a6 6 0 0 0 0 12Zm0 2a8 8 0 1 0 0-16a8 8 0 0 0 0 16Z" clip-rule="evenodd"/>
                 </g>
               </svg>
-              <div class="hidden-sidebar sidebar-link-text ">Profil</div>
+              <div class="hidden-sidebar sidebar-link-text activated">Profil</div>
             </a>
           </li>
           <li class="sidebar-list-item " onclick="makeElementActive(this)">
@@ -112,11 +128,6 @@
       <!----------------------------------------------------------------------- End of side bar ------------------------------------------------->
 
     <main class="content p-3 gap-3">
-        <div class="carousel " style="  ">
-            <div class="carousel-cell c-1 me-5"><a style="text-decoration: none; color: black;" href="ajoutePiece.html">Ajouter une piece</a></div>
-            <div class="carousel-cell c-2 me-5" ><a style="text-decoration: none; color: black;" href="chambre.html">Chambre</a></div>
-            <div class="carousel-cell c-3"><a style="text-decoration: none; color: black;" href="cuisine.html">Cuisine</a></div>
-          </div>
         <div class="container rounded bg-white mt-5 mb-5">
             <div class="row">
     
