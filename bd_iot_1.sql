@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  Dim 29 jan. 2023 à 20:57
--- Version du serveur :  5.7.17
--- Version de PHP :  5.6.30
+-- Généré le : lun. 30 jan. 2023 à 20:14
+-- Version du serveur : 10.4.27-MariaDB
+-- Version de PHP : 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `bd_iot_1`
+-- Base de données : `bd_iot_1`
 --
 
 -- --------------------------------------------------------
@@ -34,8 +33,15 @@ CREATE TABLE `etat` (
   `etat_vmc` int(11) NOT NULL,
   `etat_eclairage` tinyint(1) NOT NULL,
   `etat_volet` int(11) NOT NULL,
-  `nom_piece` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `nom_piece` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `etat`
+--
+
+INSERT INTO `etat` (`id_etat`, `etat_chauffage`, `etat_vmc`, `etat_eclairage`, `etat_volet`, `nom_piece`) VALUES
+(1, 0, 13, 11, 22, 'chambre');
 
 -- --------------------------------------------------------
 
@@ -44,10 +50,17 @@ CREATE TABLE `etat` (
 --
 
 CREATE TABLE `humidite` (
-  `horodatage` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `horodatage` timestamp NOT NULL DEFAULT current_timestamp(),
   `valeur` int(11) NOT NULL,
-  `nom_piece` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `nom_piece` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `humidite`
+--
+
+INSERT INTO `humidite` (`horodatage`, `valeur`, `nom_piece`) VALUES
+('2023-01-11 15:59:05', 14, 'chambre');
 
 -- --------------------------------------------------------
 
@@ -56,10 +69,17 @@ CREATE TABLE `humidite` (
 --
 
 CREATE TABLE `luminosite` (
-  `horodatage` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `horodatage` timestamp NOT NULL DEFAULT current_timestamp(),
   `valeur` int(11) NOT NULL,
-  `nom_piece` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `nom_piece` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `luminosite`
+--
+
+INSERT INTO `luminosite` (`horodatage`, `valeur`, `nom_piece`) VALUES
+('2023-01-23 16:03:35', 44, 'chambre');
 
 -- --------------------------------------------------------
 
@@ -68,12 +88,19 @@ CREATE TABLE `luminosite` (
 --
 
 CREATE TABLE `piece` (
-  `nom_piece` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `nom_piece` varchar(20) NOT NULL,
   `t_consigne` float NOT NULL,
   `l_consigne` int(11) NOT NULL,
   `h_consigne` int(11) NOT NULL,
-  `adresse_mail` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+  `adresse_mail` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `piece`
+--
+
+INSERT INTO `piece` (`nom_piece`, `t_consigne`, `l_consigne`, `h_consigne`, `adresse_mail`) VALUES
+('chambre', 22, 12, 19, '');
 
 -- --------------------------------------------------------
 
@@ -82,9 +109,9 @@ CREATE TABLE `piece` (
 --
 
 CREATE TABLE `temperature_ext` (
-  `horodatage` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `horodatage` timestamp NOT NULL DEFAULT current_timestamp(),
   `valeur` float NOT NULL,
-  `nom_piece` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `nom_piece` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -94,10 +121,17 @@ CREATE TABLE `temperature_ext` (
 --
 
 CREATE TABLE `temperature_int` (
-  `horodatage` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `horodatage` timestamp NOT NULL DEFAULT current_timestamp(),
   `valeur` float NOT NULL,
-  `nom_piece` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `nom_piece` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `temperature_int`
+--
+
+INSERT INTO `temperature_int` (`horodatage`, `valeur`, `nom_piece`) VALUES
+('2023-01-11 15:47:23', 12.5, 'chambre');
 
 -- --------------------------------------------------------
 
@@ -106,12 +140,12 @@ CREATE TABLE `temperature_int` (
 --
 
 CREATE TABLE `utilisateur` (
-  `adresse_mail` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `mdp` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `adresse` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `adresse_mail` varchar(100) NOT NULL,
+  `mdp` varchar(20) NOT NULL,
+  `adresse` varchar(100) NOT NULL,
   `cp` int(11) NOT NULL,
-  `ville` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `telephone` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `ville` varchar(20) NOT NULL,
+  `telephone` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -168,7 +202,8 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `etat`
 --
 ALTER TABLE `etat`
-  MODIFY `id_etat` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+  MODIFY `id_etat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

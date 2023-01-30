@@ -35,6 +35,13 @@ require_once('connDb.php');
     $stmt ->execute(['chambre']);
 
     $etat=$stmt->fetchAll();
+    // temp_exterieur
+    $stmt = $conn->prepare("SELECT * FROM temperature_ext WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $temperature_ext=$stmt->fetchAll();
+
 
 
 ?>
@@ -90,7 +97,11 @@ require_once('connDb.php');
       <div class="alert alert-danger text-center fw-bold d-none"  id="alert-chauffage" role="alert">
         Pensez à arrêter le chauffage ! 
        </div> 
-
+     
+       <!-- afficher message temp exterieur -->
+       <div class="item text-center  border border-4 border-success ">
+        <h6 class="fw-bold"> Bonjour, la température extérieure est de <span><?=$temperature_ext[0]['valeur'];?></span> °C</h6> 
+      </div>
       <!-- les 3 logos -->
       <div class="item d-flex flex-wrap justify-content-around  align-item-center">
           <!-- 1 logo -->
