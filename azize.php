@@ -1,6 +1,6 @@
 <?php
 require_once('connDb.php');
-  //  temperature
+  //  temperature logo 1
     $stmt = $conn->prepare("SELECT * FROM temperature_int WHERE  nom_piece=? ");
 
     $stmt ->execute(['chambre']);
@@ -8,19 +8,34 @@ require_once('connDb.php');
     $temp_int=$stmt->fetchAll();
 
 
-    // humidite
+    // humidite logo 2
     $stmt = $conn->prepare("SELECT * FROM humidite WHERE  nom_piece=? ");
 
     $stmt ->execute(['chambre']);
 
     $humidite_int=$stmt->fetchAll();
 
-    // luminosite
+    // luminosite logo 3
     $stmt = $conn->prepare("SELECT * FROM luminosite WHERE  nom_piece=? ");
 
     $stmt ->execute(['chambre']);
 
     $luminosite_int=$stmt->fetchAll();
+
+    // piece
+
+    $stmt = $conn->prepare("SELECT * FROM piece WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $piece=$stmt->fetchAll();
+    // etat
+    $stmt = $conn->prepare("SELECT * FROM etat WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $etat=$stmt->fetchAll();
+
 
 ?>
 
@@ -137,7 +152,7 @@ require_once('connDb.php');
           <div class="margin-right-120 fw-bold">Température  </div>
           <div class="range" id="temperatue">
             <!-- <span id="rs-bullet" class="rs-label">0</span> -->
-            <input  type="range" value="18" class="form-range slider"  id="input-temperature" min="5" max="30" />
+            <input  type="range" value="<?= $piece[0]['t_consigne'];?>" class="form-range slider"  id="input-temperature" min="5" max="30" />
            
            
            
@@ -157,7 +172,7 @@ require_once('connDb.php');
       <div class="humidite p-2 d-flex justify-content-around align-item-center">
         <div style="margin-right: 51px;" class="margin-right-120 fw-bold">Humidité  </div>
         <div class="range">
-          <input type="range" value="50" class="form-range" id="input-humidite" min="0" max="100"/>
+          <input type="range" value="<?= $piece[0]['h_consigne'];?>" class="form-range" id="input-humidite" min="0" max="100"/>
           <datalist id="values">
 
             <option class="fw-bold" value="0" label="0%"></option>
@@ -173,7 +188,7 @@ require_once('connDb.php');
       <div class="luminosite p-2 d-flex justify-content-around align-item-center">
         <div class="margin-right-120 fw-bold">Luminosité  </div>
         <div class="range">
-          <input type="range" class="form-range" value="50" id="input-luminosite" min="0" max="100"/>
+          <input type="range" class="form-range" value="<?= $piece[0]['l_consigne'];?>" id="input-luminosite" min="0" max="100"/>
           <datalist id="values">
 
             <option class="fw-bold" value="0" label="0%"></option>
@@ -208,7 +223,7 @@ require_once('connDb.php');
       <div class="Eclairage p-2 d-flex justify-content-around align-item-center">
         <div style="margin-right: -2px;" class="margin-right-114 fw-bold">Eclairage  </div>
         <div class="range ">
-          <input type="range" class="form-range" value="50" id="input-eclairage" min="0" max="100"/>
+          <input type="range" class="form-range" value="<?=$etat[0]['etat_eclairage'];?>" id="input-eclairage" min="0" max="100"/>
           <datalist id="values">
             <option class="fw-bold" value="0" label="0%"></option>
             <div class="text-cente fw-bold fs-6" id="eclairage-value"></div>
@@ -220,7 +235,7 @@ require_once('connDb.php');
       <div class="Volets p-2 d-flex justify-content-around align-item-center">
         <div style="margin-right: 13px;" class="margin-right-114 fw-bold">Volets  </div>
         <div class="range ">
-          <input type="range" class="form-range" value="50" id="input-volets" min="0" max="100"/>
+          <input type="range" class="form-range" value="<?=$etat[0]['etat_volet'];?>" id="input-volets" min="0" max="100"/>
           <datalist id="values">
             <option class="fw-bold" value="0" label="0%"></option>
             <div class="text-cente fw-bold fs-6" id="volets-value"></div>
