@@ -1,3 +1,30 @@
+<?php
+require_once('connDb.php');
+  //  temperature
+    $stmt = $conn->prepare("SELECT * FROM temperature_int WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $temp_int=$stmt->fetchAll();
+
+
+    // humidite
+    $stmt = $conn->prepare("SELECT * FROM humidite WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $humidite_int=$stmt->fetchAll();
+
+    // luminosite
+    $stmt = $conn->prepare("SELECT * FROM luminosite WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $luminosite_int=$stmt->fetchAll();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +84,8 @@
              <div><img class="logos-icon-img" src="logo1.png"/></div>
              <div class="pt-4  ">
               <div class="font-weight-bold text-icon d-flex justify-content-between fs-4">
-                <span class="me-1" id="temp-mesure">17</span>
+
+                <span class="me-1" id="temp-mesure"><?=$temp_int[0]['valeur'];?> </span>
                 <span>°C</span> 
               </div>
              </div> 
@@ -69,7 +97,7 @@
              <div class="pt-4  ">
               
               <div class="font-weight-bold text-icon d-flex justify-content-between fs-4">
-                <span class="me-1">80</span>
+                <span class="me-1"><?= $humidite_int[0]['valeur'];?></span>
                 <span>%</span> 
               </div> 
             
@@ -81,7 +109,7 @@
             <div><img class="logos-icon-img" src="logo3-removebg-preview.png"/></div>
              <div class="pt-4 ">
               <div class="font-weight-bold text-icon d-flex justify-content-between fs-4">
-              <span class="me-1">433</span>
+              <span class="me-1"><?= $luminosite_int[0]['valeur'];?></span>
               <span>Lux</span> 
             </div>  
           </div> 
