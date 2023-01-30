@@ -13,6 +13,11 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="azize.css">
+<!-- Include the Flickity CSS -->
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+<!-- Include the Flickity JavaScript -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
   <title>home page</title>
 </head>
@@ -24,9 +29,17 @@
 
   <div class="wrapper">
 
- 
+    <div class="carousel " style="    margin-left: 200px; margin-top: 100px;">
+      <div class="carousel-cell c-1 me-5">Ajoute piece</div>
+      <div class="carousel-cell c-2 me-5">Chambre</div>
+      <div class="carousel-cell c-3">Cuisine</div>
+    </div>
+
+    <div id="app"></div>
 
     <div class="main_container d-flex flex-column">
+
+    
 
       <div class="alert alert-danger text-center fw-bold d-none" id="alert-allumer" role="alert">
         Pensez à allumer le chauffage ! 
@@ -205,11 +218,74 @@
       </div>
 
     </div>
-    
+
+    <div class="item  d-flex justify-content-between align-item-center">
+    <div id="chart_div"></div>
+    <div id="chart_div1"></div>
+    <div id="chart_div2"></div>
   </div>
- 
+
+
+</div>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
   <script>
+    
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+  // Create the data table
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Year');
+  data.addColumn('number', 'Sales');
+  data.addRows([
+    ['2004', 1000],
+    ['2005', 1170],
+    ['2006', 660],
+    ['2007', 1030]
+  ]);
+
+  // Set chart options
+  var options = {'title':'Company Performance',
+                 'width':400,
+                 'height':300};
+
+  // Create the chart
+  var chart1 = new google.visualization.BarChart(document.getElementById('chart_div'));
+  var chart2 = new google.visualization.LineChart(document.getElementById('chart_div1'));
+  var chart3= new google.visualization.ScatterChart(document.getElementById('chart_div2'));
+  chart1.draw(data, options);
+  chart2.draw(data, options);
+  chart3.draw(data, options);
+}
+
+
+
+
+
+
+
  $(document).ready(function(){
+  // carousel
+  var flkty = new Flickity( '.carousel', {});
+  flkty.on( 'select', function() {
+
+    if(flkty.selectedIndex==0){
+        $('.c-1').addClass('fw-bold');
+        $('.c-1').addClass('fs-6');
+    }
+    if(flkty.selectedIndex==1){
+        $('.c-2').addClass('fw-bold');
+        $('.c-2').addClass('fs-6');
+    }
+    if(flkty.selectedIndex==2){
+        $('.c-3').addClass('fw-bold');
+        $('.c-3').addClass('fs-6');
+    }
+    console.log( 'Flickity select ' + flkty.selectedIndex )
+  });
+
 //temp
 var slider_temp = document.getElementById("input-temperature");
 var value_temp = document.getElementById("temperature-value");
