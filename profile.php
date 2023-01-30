@@ -37,8 +37,8 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-  <link rel="stylesheet" href="main-styles.css">
-  <script src="main-script.js" defer></script>
+  <link rel="stylesheet" href="css/main-styles.css">
+  <script src="js/main-script.js" defer></script>
 </head>
 <body>
   <!----------------------------------------------------------------------- nav bar ------------------------------------------------------------->
@@ -48,7 +48,7 @@
         <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="menu-icon"><g ><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></g></svg>
       </button>
       <div class="logo-img">
-        <img src="logo-iot-removebg-preview.png" alt="">
+        <img src="images/logo-iot-removebg-preview.png" alt="">
       </div>
     </div>
     <div class="weather">
