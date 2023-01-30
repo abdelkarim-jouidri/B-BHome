@@ -273,15 +273,37 @@ function drawChart() {
 
     if(flkty.selectedIndex==0){
         $('.c-1').addClass('fw-bold');
+        $('.c-2').removeClass('fw-bold');
+        $('.c-3').removeClass('fw-bold');
+        
+        // $('.c-2').addClass('opacity-25');
+        // $('.c-3').addClass('opacity-25');
+
+       
+
         $('.c-1').addClass('fs-6');
+        $('.c-2').removeClass('fs-6');
+        $('.c-3').removeClass('fs-6');
+       
     }
     if(flkty.selectedIndex==1){
         $('.c-2').addClass('fw-bold');
+
+        $('.c-1').removeClass('fw-bold');
+        $('.c-3').removeClass('fw-bold');
+
         $('.c-2').addClass('fs-6');
+        $('.c-1').removeClass('fs-6');
+        $('.c-3').removeClass('fs-6');
     }
     if(flkty.selectedIndex==2){
         $('.c-3').addClass('fw-bold');
+        $('.c-2').removeClass('fw-bold');
+        $('.c-1').removeClass('fw-bold');
+
         $('.c-3').addClass('fs-6');
+        $('.c-2').removeClass('fs-6');
+        $('.c-1').removeClass('fs-6');
     }
     console.log( 'Flickity select ' + flkty.selectedIndex )
   });
