@@ -189,7 +189,7 @@ data.addColumn('number', 'Luminosité');
 
 //   }
 // var_dump($luminosite_chart);
-$json_array = json_encode($luminosite_chart);
+$json_array = json_encode($luminosite_int);
   ?>
 var dataArray =[];
 var js_array = JSON.parse('<?php echo $json_array; ?>');
@@ -228,7 +228,7 @@ data.addColumn('number', 'temperature');
 
 //   }
 // var_dump($luminosite_chart);
-$json_array = json_encode($temperature_ext);
+$json_array = json_encode($temp_int);
   ?>
 var dataArray =[];
 var js_array = JSON.parse('<?php echo $json_array; ?>');
