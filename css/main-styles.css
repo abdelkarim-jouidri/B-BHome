@@ -302,7 +302,7 @@ img{
   }
 
   .sidebar {
-    width: 100vw;
+    /* width: 100vw; */
     height: 70px;
     box-shadow: 0 4px 2px -2px gray;
     padding-top: 10px;

@@ -1,7 +1,57 @@
 <?php
 require_once('connDb.php');
+  //  temperature logo 1
+    $stmt = $conn->prepare("SELECT * FROM temperature_int WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $temp_int=$stmt->fetchAll();
+
+
+    // humidite logo 2
+    $stmt = $conn->prepare("SELECT * FROM humidite WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $humidite_int=$stmt->fetchAll();
+
+    // luminosite logo 3
+    $stmt = $conn->prepare("SELECT * FROM luminosite WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $luminosite_int=$stmt->fetchAll();
+
+    // piece
+
+    $stmt = $conn->prepare("SELECT * FROM piece WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $piece=$stmt->fetchAll();
+    // etat
+    $stmt = $conn->prepare("SELECT * FROM etat WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $etat=$stmt->fetchAll();
+
+    // temp_exterieur
+    $stmt = $conn->prepare("SELECT * FROM temperature_ext WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $temperature_ext=$stmt->fetchAll();
+
+    // luminosite
+    $stmt = $conn->prepare("SELECT horodatage,valeur FROM temperature_int WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $luminosite_chart=$stmt->fetchAll();
+// print_r($luminosite_chart);
  
-  //SQL queries here
+
 
 ?>
 
@@ -62,16 +112,16 @@ require_once('connDb.php');
       <aside class="sidebar" data-sidebar>
         <div class="middle-sidebar">
           <ul class="sidebar-list">
-            <li class="sidebar-list-item  activated" onclick="makeElementActive(this)">
-              <a href="chambre.php" id="home-link" class="sidebar-link  activated">
-                <svg class="sidebar-icon activated" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" ><g ><path d="M4,10V21h6V15h4v6h6V10L12,3Z" ></path></g></svg>
-                <div class="hidden-sidebar sidebar-link-text activated">accueil</div>
+            <li class="sidebar-list-item  " onclick="makeElementActive(this)">
+              <a href="chambre.php" id="home-link" class="sidebar-link  ">
+                <svg class="sidebar-icon " viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" ><g ><path d="M4,10V21h6V15h4v6h6V10L12,3Z" ></path></g></svg>
+                <div class="hidden-sidebar sidebar-link-text ">accueil</div>
               </a>
             </li>
-            <li class="sidebar-list-item " onclick="makeElementActive(this)">
-              <a href="historique.php" class="sidebar-link">
-                <svg class="sidebar-icon"viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"  ><g ><path d="M14.97,16.95L10,13.87V7h2v5.76l4.03,2.49L14.97,16.95z M12,2C8.73,2,5.8,3.44,4,5.83V3.02H2V9h6V7H5.62 C7.08,5.09,9.36,4,12,4c4.41,0,8,3.59,8,8s-3.59,8-8,8s-8-3.59-8-8H2c0,5.51,4.49,10,10,10s10-4.49,10-10S17.51,2,12,2z" ></path></g></svg>   
-                <div class="hidden-sidebar sidebar-link-text ">Historique</div>
+            <li class="sidebar-list-item  activated" onclick="makeElementActive(this)">
+              <a href="historique.php" class="sidebar-link activated">
+                <svg class="sidebar-icon activated"viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"  ><g ><path d="M14.97,16.95L10,13.87V7h2v5.76l4.03,2.49L14.97,16.95z M12,2C8.73,2,5.8,3.44,4,5.83V3.02H2V9h6V7H5.62 C7.08,5.09,9.36,4,12,4c4.41,0,8,3.59,8,8s-3.59,8-8,8s-8-3.59-8-8H2c0,5.51,4.49,10,10,10s10-4.49,10-10S17.51,2,12,2z" ></path></g></svg>   
+                <div class="hidden-sidebar sidebar-link-text  activated">Historique</div>
               </a>
             </li>
      
@@ -100,439 +150,320 @@ require_once('connDb.php');
 
     <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
     <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
+    <div id="chart_div" style="width: 100%; height : 100%"></div>
+    <div id="chart_div_1" style="width: 100%; height : 100%"></div>
+              </main>
     
     <!-- /*------------------------------------------------------------------- Aziz's part---------------------------------------------------------------------------------------------------------------> 
-          <div class="wrapper">
-              <div class="carousel " style="">
-                <div class="carousel-cell c-1 me-5 fw-bold" ><a style="text-decoration: none; color: black; " href="chambre.html">Chambre</a></div>
-                <div class="carousel-cell c-2 me-5 opacity-25"><a style="text-decoration: none; color: black; " href="ajoutePiece.html">Ajouter une piece</a></div>
-                <div class="carousel-cell c-3 opacity-25"><a style="text-decoration: none; color: black;" href="cuisine.html">Cuisine</a></div>
-              </div>
+     
                 
 
       
 
               
-          <div class="main_container d-flex flex-column p-0 mt-5 w-100">
-
-          
-
-            <div class="alert alert-danger text-center fw-bold d-none" id="alert-allumer" role="alert" style="  ">
-              Pensez à allumer le chauffage ! 
-            </div> 
-
-            <div class="alert alert-danger text-center fw-bold d-none"  id="alert-chauffage" role="alert">
-              Pensez à arrêter le chauffage ! 
-            </div> 
-
-             <!-- afficher message temp exterieur -->
-            <div class="item text-center  border border-4 border-success ">
-              <h6 class="fw-bold"> Bonjour, la température extérieure est de <span><?=$temperature_ext[0]['valeur'];?></span> °C</h6> 
-            </div>
-            <!-- les 3 logos -->
-            <div class="item d-flex flex-wrap justify-content-around  align-item-center">
-                <!-- 1 logo -->
-                <div class="first-logo border  border-2 border-secondary rounded  p-3 mt-1 mr-1 d-flex justify-content-between align-item-center">
-                  
-                  <div><img class="logos-icon-img" src="images/logo1.png"/></div>
-                  <div class="pt-4  ">
-                    <div class="font-weight-bold text-icon d-flex justify-content-between fs-4">
-
-                      <span class="me-1" id="temp-mesure"><?=$temp_int[0]['valeur'];?> </span>
-                      <span>°C</span> 
-                    </div>
-                  </div> 
-                </div>
-                <!-- 2 logo -->
-
-                <div class="second-logo border border-2 border-secondary rounded  p-3 mt-1 mr-1 d-flex justify-content-between align-item-center">
-                  <div><img class="logos-icon-img" src="images/logo2.png"/></div>
-                  <div class="pt-4  ">
-                    
-                    <div class="font-weight-bold text-icon d-flex justify-content-between fs-4">
-                      <span class="me-1"><?= $humidite_int[0]['valeur'];?></span>
-                      <span>%</span> 
-                    </div> 
-                  
-                  </div> 
-                    
-                </div>
-                <!-- 3 logo -->
-                <div class="third-logo border border-2 border-secondary rounded  p-3 mt-1 d-flex justify-content-between align-item-center">
-                  <div><img class="logos-icon-img" src="images/logo3-removebg-preview.png"/></div>
-                  <div class="pt-4 ">
-                    <div class="font-weight-bold text-icon d-flex justify-content-between fs-4">
-                    <span class="me-1"><?= $luminosite_int[0]['valeur'];?></span>
-                    <span>Lux</span> 
-                  </div>  
-                </div> 
-                    
-                </div>
-
-              
-            </div>
-
-            <div class="item text-center  border border-4 border-success ">
-              <h5 class="fw-bold">Modifier les valeurs de consignes </h5> 
-            </div>
-            <div class=" item">
-                  
-
-              <!-- <div id="slider">
-                <span id="value">50</span>
-                <input type="range" id="range" value="50"/>
-            </div>  -->
-            
-            
-
-
-            <div class="température  p-2 d-flex justify-content-around align-item-center">
-                <div class="margin-right-120 fw-bold">Température  </div>
-                <div class="range" id="temperatue">
-                  <!-- <span id="rs-bullet" class="rs-label">0</span> -->
-                  <input  type="range" value="<?= $piece[0]['t_consigne'];?>" class="form-range slider"  id="input-temperature" min="5" max="30" />
-                
-                
-                
-                  <datalist id="values">
-                    <option class="fw-bold" value="0" label="5°C"></option>
-
-                    <div class="text-cente fw-bold fs-6" id="temperature-value"></div>
-
-                    <option class="fw-bold" value="30" label="30°C"></option>
-                  </datalist>
-                
-                </div>
-
-                
-            </div>
-
-            <div class="humidite p-2 d-flex justify-content-around align-item-center">
-              <div style="margin-right: 51px;" class="margin-right-120 fw-bold">Humidité  </div>
-              <div class="range">
-                <input type="range" value="<?= $piece[0]['h_consigne'];?>" class="form-range" id="input-humidite" min="0" max="100"/>
-                <datalist id="values">
-
-                  <option class="fw-bold" value="0" label="0%"></option>
-
-                  <div class="text-cente fw-bold fs-6" id="humidite-value"></div>
-
-                  <option class="fw-bold" value="100" label="100%"></option>
-                </datalist>
-              
-              </div>
-            </div>
-
-            <div class="luminosite p-2 d-flex justify-content-around align-item-center">
-              <div class="margin-right-120 fw-bold">Luminosité  </div>
-              <div class="range">
-                <input type="range" class="form-range" value="<?= $piece[0]['l_consigne'];?>" id="input-luminosite" min="0" max="100"/>
-                <datalist id="values">
-
-                  <option class="fw-bold" value="0" label="0%"></option>
-                  <div class="text-cente fw-bold fs-6" id="luminosite-value"></div>
-                  <option class="fw-bold" value="100" label="100%"></option>
-                </datalist>
-              </div>
-            </div>
-
-            </div>
-            <div class="item text-center  border border-4 border-success ">
-              <h5 class="fw-bold">Etat </h5> 
-            </div>
-            <div class="item">
-              <div class="Chauffage p-2 d-flex justify-content-around align-item-center">
-                
-                <div class="margin-right-120 fw-bold">Chauffage  </div>
-                <div class="form-check form-switch margin-right-120">
-                  <input   class="form-check-input padding-right-46" type="checkbox" id="check1"
-                 
-                  <?php if($etat[0]['etat_chauffage']==1){
-                  echo 'checked';}
-                  ?>
-                  >
-                  
-                  <!-- <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> -->
-                </div>
-            </div>
-
-            <div class="Eclairage p-2 d-flex justify-content-around align-item-center">
-              <div  class="margin-right-120 fw-bold">Eclairage </div>
-              <div class="form-check form-switch ms-5  margin-right-120 ">
-                <input  class="form-check-input padding-right-46" type="checkbox" id="check2" 
-                <?php if ($etat[0]['etat_eclairage'] == 1) {
-                  echo 'checked';
-                }
-                  ?>
-                >
-                <!-- <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> -->
-              </div>
-            </div>
-
-            <div class="VMC p-2 d-flex justify-content-around align-item-center">
-              <div style="margin-right: -2px;" class="margin-right-114 fw-bold"> VMC </div>
-              <div class="range ">
-                <input type="range" class="form-range" value="<?=$etat[0]['etat_vmc'];?>" id="input-vmc" min="0" max="100"/>
-                <datalist id="values">
-                  <option class="fw-bold" value="0" label="0%"></option>
-                  <div class="text-cente fw-bold fs-6" id="vmc-value"></div>
-                  <option class="fw-bold" value="100" label="100%"></option>
-                </datalist>
-              </div>
-            </div>
-
-            <div class="Volets p-2 d-flex justify-content-around align-item-center">
-              <div style="margin-right: 13px;" class="margin-right-114 fw-bold">Volets  </div>
-              <div class="range ">
-                <input type="range" class="form-range" value="<?=$etat[0]['etat_volet'];?>" id="input-volets" min="0" max="100"/>
-                <datalist id="values">
-                  <option class="fw-bold" value="0" label="0%"></option>
-                  <div class="text-cente fw-bold fs-6" id="volets-value"></div>
-                  <option class="fw-bold" value="100" label="100%"></option>
-                </datalist>
-              </div>
-            </div>
-
-            </div>
-
-            <div class="item text-center  border border-4 border-success ">
-              <h5 class="fw-bold">Absent ?</h5> 
-            </div>
-              
-            <div class="item">
-              <div class="Chauffage p-2 d-flex justify-content-center align-item-center">
-                
-                <!-- <div class="margin-right-120 fw-bold">Chauffage  </div> -->
-                <div class="form-check form-switch ">
-                  <input   class="form-check-input padding-right-46" type="checkbox" id="check3"
-                  <?php if($etat[0]['etat_absence']==1){
-                  echo 'checked';}
-                  ?>
-                  >
-                  <!-- <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> -->
-                </div>
-            </div>
-
-          </div>
+         
             </div>
           <!-- /*------------------------------------------------------------------- End ofAziz's part---------------------------------------------------------------------------------------------------------------> 
-
-          </main>
   </div>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-  <script>
-    
+    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+
+<script>
+  
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  google.charts.setOnLoadCallback(drawChart1);
+
+function drawChart() {
+// Create the data table
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'Year');
+data.addColumn('number', 'Luminosité');
+
+<?php
+// foreach($luminosite_chart as $lum_chart){
+//   $a=$lum_chart['horodatage'];
+//   $b=$lum_chart['valeur'];
+
+
+//   }
+// var_dump($luminosite_chart);
+$json_array = json_encode($luminosite_chart);
+  ?>
+var dataArray =[];
+var js_array = JSON.parse('<?php echo $json_array; ?>');
+
+
+for (var n = 0; n < js_array.length; n++) {
+data.addRows([
+ [js_array[n]['horodatage'],js_array[n]['valeur']],
+ [js_array[n]['horodatage'],js_array[n]['valeur']]
+ 
+  
+  
+]);
+}
+
+var options = {
+  'title':'Luminosité',
+               };
+
+var chart1 = new google.visualization.LineChart(document.getElementById('chart_div'));
+chart1.draw(data, options);
+
+}
+
+function drawChart1() {
+// Create the data table
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'Year');
+data.addColumn('number', 'temperature');
+
+<?php
+// foreach($luminosite_chart as $lum_chart){
+//   $a=$lum_chart['horodatage'];
+//   $b=$lum_chart['valeur'];
+
+
+//   }
+// var_dump($luminosite_chart);
+$json_array = json_encode($temperature_ext);
+  ?>
+var dataArray =[];
+var js_array = JSON.parse('<?php echo $json_array; ?>');
+
+
+for (var n = 0; n < js_array.length; n++) {
+data.addRows([
+ [js_array[n]['horodatage'],js_array[n]['valeur']],
+ [js_array[n]['horodatage'],js_array[n]['valeur']]
+ 
+  
+  
+]);
+}
+
+var options = {
+  'title':'Température',
+               };
+
+var chart1 = new google.visualization.LineChart(document.getElementById('chart_div_1'));
+chart1.draw(data, options);
+
+}
+
+
 
  $(document).ready(function(){
 
 
 
   // carousel
-  var flkty = new Flickity( '.carousel', {});
-  flkty.selectedIndex
-  flkty.on( 'select', function() {
-    if(flkty.selectedIndex==0){
-        $('.c-1').addClass('fw-bold');
-        $('.c-2').removeClass('fw-bold');
-        $('.c-3').removeClass('fw-bold');
-        $('.c-1').removeClass('opacity-25');
+//   var flkty = new Flickity( '.carousel', {});
+//   flkty.selectedIndex
+//   flkty.on( 'select', function() {
+//     if(flkty.selectedIndex==0){
+//         $('.c-1').addClass('fw-bold');
+//         $('.c-2').removeClass('fw-bold');
+//         $('.c-3').removeClass('fw-bold');
+//         $('.c-1').removeClass('opacity-25');
 
-        $('.c-2').addClass('opacity-25');
-        $('.c-3').addClass('opacity-25');
+//         $('.c-2').addClass('opacity-25');
+//         $('.c-3').addClass('opacity-25');
         
 
-        $('.c-1').addClass('fs-6');
-    }
-    if(flkty.selectedIndex==1){
-        $('.c-2').addClass('fw-bold');
-        $('.c-1').removeClass('fw-bold');
-        $('.c-3').removeClass('fw-bold');
-        $('.c-2').removeClass('opacity-25');
+//         $('.c-1').addClass('fs-6');
+//     }
+//     if(flkty.selectedIndex==1){
+//         $('.c-2').addClass('fw-bold');
+//         $('.c-1').removeClass('fw-bold');
+//         $('.c-3').removeClass('fw-bold');
+//         $('.c-2').removeClass('opacity-25');
 
-        $('.c-2').addClass('fs-6');
-        $('.c-1').removeClass('fs-6');
-        $('.c-3').removeClass('fs-6');
-        $('.c-1').addClass('opacity-25');
-        $('.c-3').addClass('opacity-25');
-    }
-    if(flkty.selectedIndex==2){
-        $('.c-3').addClass('fw-bold');
-        $('.c-3').removeClass('opacity-25');
-        $('.c-2').removeClass('fw-bold');
-        $('.c-1').removeClass('fw-bold');
+//         $('.c-2').addClass('fs-6');
+//         $('.c-1').removeClass('fs-6');
+//         $('.c-3').removeClass('fs-6');
+//         $('.c-1').addClass('opacity-25');
+//         $('.c-3').addClass('opacity-25');
+//     }
+//     if(flkty.selectedIndex==2){
+//         $('.c-3').addClass('fw-bold');
+//         $('.c-3').removeClass('opacity-25');
+//         $('.c-2').removeClass('fw-bold');
+//         $('.c-1').removeClass('fw-bold');
 
-        $('.c-2').addClass('opacity-25');
-        $('.c-1').addClass('opacity-25');
+//         $('.c-2').addClass('opacity-25');
+//         $('.c-1').addClass('opacity-25');
 
-        $('.c-3').addClass('fs-6');
-        $('.c-2').removeClass('fs-6');
-        $('.c-1').removeClass('fs-6');
-    }
-    console.log( 'Flickity select ' + flkty.selectedIndex )
-  });
+//         $('.c-3').addClass('fs-6');
+//         $('.c-2').removeClass('fs-6');
+//         $('.c-1').removeClass('fs-6');
+//     }
+//     console.log( 'Flickity select ' + flkty.selectedIndex )
+//   });
 
-// temperature
-var slider_temp = document.getElementById("input-temperature");
-var value_temp = document.getElementById("temperature-value");
+// // temperature
+// var slider_temp = document.getElementById("input-temperature");
+// var value_temp = document.getElementById("temperature-value");
 
-value_temp.innerHTML = slider_temp.value+'°C'; 
-slider_temp.oninput = function() {
-value_temp.innerHTML = this.value+'°C';
+// value_temp.innerHTML = slider_temp.value+'°C'; 
+// slider_temp.oninput = function() {
+// value_temp.innerHTML = this.value+'°C';
  
-$.ajax({
-    type: "POST",
-    url: 'ajaxValues.php',
-    data:{temp_value:this.value},
-    success: function(response){
-        console.log(response);
-    }
-  });
-}
+// $.ajax({
+//     type: "POST",
+//     url: 'ajaxValues.php',
+//     data:{temp_value:this.value},
+//     success: function(response){
+//         console.log(response);
+//     }
+//   });
+// }
 
 
-//humidite
-var slider_humidite = document.getElementById("input-humidite");
-var value_humidite = document.getElementById("humidite-value");
+// //humidite
+// var slider_humidite = document.getElementById("input-humidite");
+// var value_humidite = document.getElementById("humidite-value");
 
-value_humidite.innerHTML = slider_humidite.value+'%'; 
-slider_humidite.oninput = function() {
-  value_humidite.innerHTML = this.value+'%';
+// value_humidite.innerHTML = slider_humidite.value+'%'; 
+// slider_humidite.oninput = function() {
+//   value_humidite.innerHTML = this.value+'%';
 
-  $.ajax({
-    type: "POST",
-    url: 'ajaxValues.php',
-    data:{humidite_value:this.value},
-    success: function(response){
-        console.log(response);
-    }
-  });
+//   $.ajax({
+//     type: "POST",
+//     url: 'ajaxValues.php',
+//     data:{humidite_value:this.value},
+//     success: function(response){
+//         console.log(response);
+//     }
+//   });
 
-}
-//luminosite
-var slider_luminosite = document.getElementById("input-luminosite");
-var value_luminosite = document.getElementById("luminosite-value");
+// }
+// //luminosite
+// var slider_luminosite = document.getElementById("input-luminosite");
+// var value_luminosite = document.getElementById("luminosite-value");
 
-value_luminosite.innerHTML = slider_luminosite.value+'%'; 
-slider_luminosite.oninput = function() {
-  value_luminosite.innerHTML = this.value+'%';
-  $.ajax({
-    type: "POST",
-    url: 'ajaxValues.php',
-    data:{luminosite_value:this.value},
-    success: function(response){
-        console.log(response);
-    }
-  });
-}
-//eclairage
-var slider_vmc = document.getElementById("input-vmc");
-var value_vmc = document.getElementById("vmc-value");
+// value_luminosite.innerHTML = slider_luminosite.value+'%'; 
+// slider_luminosite.oninput = function() {
+//   value_luminosite.innerHTML = this.value+'%';
+//   $.ajax({
+//     type: "POST",
+//     url: 'ajaxValues.php',
+//     data:{luminosite_value:this.value},
+//     success: function(response){
+//         console.log(response);
+//     }
+//   });
+// }
+// //eclairage
+// var slider_vmc = document.getElementById("input-vmc");
+// var value_vmc = document.getElementById("vmc-value");
 
-value_vmc.innerHTML = slider_vmc.value+'%'; 
-slider_vmc.oninput = function() {
-  value_vmc.innerHTML = this.value+'%';
-  console.log(this.value)
+// value_vmc.innerHTML = slider_vmc.value+'%'; 
+// slider_vmc.oninput = function() {
+//   value_vmc.innerHTML = this.value+'%';
+//   console.log(this.value)
 
-  $.ajax({
-    type: "POST",
-    url: 'ajaxValues.php',
-    data:{vmc_value:this.value},
-    success: function(response){
-        console.log(response);
-    }
-  });
+//   $.ajax({
+//     type: "POST",
+//     url: 'ajaxValues.php',
+//     data:{vmc_value:this.value},
+//     success: function(response){
+//         console.log(response);
+//     }
+//   });
 
-}
+// }
 
-//volets
+// //volets
 
-var slider_volets = document.getElementById("input-volets");
-var value_volets = document.getElementById("volets-value");
+// var slider_volets = document.getElementById("input-volets");
+// var value_volets = document.getElementById("volets-value");
 
-value_volets.innerHTML = slider_volets.value+'%'; 
-slider_volets.oninput = function() {
-  value_volets.innerHTML = this.value+'%';
+// value_volets.innerHTML = slider_volets.value+'%'; 
+// slider_volets.oninput = function() {
+//   value_volets.innerHTML = this.value+'%';
 
-  $.ajax({
-    type: "POST",
-    url: 'ajaxValues.php',
-    data:{volet_value:this.value},
-    success: function(response){
-        console.log(response);
-    }
-  });
-}
-// check 1 #
-$('#check1').change(function() {
+//   $.ajax({
+//     type: "POST",
+//     url: 'ajaxValues.php',
+//     data:{volet_value:this.value},
+//     success: function(response){
+//         console.log(response);
+//     }
+//   });
+// }
+// // check 1 #
+// $('#check1').change(function() {
     
   
-        $.ajax({
-    type: "POST",
-    url: 'ajaxValues.php',
-    data:{etat_checked1:this.checked},
-    success: function(response){
-        console.log(response);
-    }
-  });
+//         $.ajax({
+//     type: "POST",
+//     url: 'ajaxValues.php',
+//     data:{etat_checked1:this.checked},
+//     success: function(response){
+//         console.log(response);
+//     }
+//   });
 
     
-});
-// check 2 #
-$('#check2').change(function() {
+// });
+// // check 2 #
+// $('#check2').change(function() {
     
   
-    $.ajax({
-type: "POST",
-url: 'ajaxValues.php',
-data:{etat_checked2:this.checked},
-success: function(response){
-    console.log(response);
-}
-});
+//     $.ajax({
+// type: "POST",
+// url: 'ajaxValues.php',
+// data:{etat_checked2:this.checked},
+// success: function(response){
+//     console.log(response);
+// }
+// });
 
 
-});
+// });
 
-// check 3
-$('#check3').change(function() {
+// // check 3
+// $('#check3').change(function() {
     
-  $.ajax({
-type: "POST",
-url: 'ajaxValues.php',
-data:{etat_checked3:this.checked},
-success: function(response){
-    console.log(response);
-}
-});
+//   $.ajax({
+// type: "POST",
+// url: 'ajaxValues.php',
+// data:{etat_checked3:this.checked},
+// success: function(response){
+//     console.log(response);
+// }
+// });
 
 
-});
+// });
 
 
 
-// cdt of alerts
+// // cdt of alerts
 
-let tempConsigne = slider_temp.value;
-let tempMesure = document.getElementById("temp-mesure").innerHTML;
+// let tempConsigne = slider_temp.value;
+// let tempMesure = document.getElementById("temp-mesure").innerHTML;
  
- console.log(tempMesure);
- console.log(tempConsigne);
- if(tempMesure < tempConsigne + 0.5){
-  if(document.getElementById("check1").checked == false ){
-    document.getElementById("alert-allumer").classList.remove('d-none');
+//  console.log(tempMesure);
+//  console.log(tempConsigne);
+//  if(tempMesure < tempConsigne + 0.5){
+//   if(document.getElementById("check1").checked == false ){
+//     document.getElementById("alert-allumer").classList.remove('d-none');
 
-  }
+//   }
   
- }
- else if(tempMesure > tempConsigne + 0.5){
-  if(document.getElementById("check1").checked == true){
+//  }
+//  else if(tempMesure > tempConsigne + 0.5){
+//   if(document.getElementById("check1").checked == true){
 
-  document.getElementById("alert-chauffage").classList.remove('d-none');
-  }
+//   document.getElementById("alert-chauffage").classList.remove('d-none');
+//   }
 
 
- }
+//  }
  
 
 
@@ -542,7 +473,6 @@ let tempMesure = document.getElementById("temp-mesure").innerHTML;
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script> 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
-  <script src="owlfolder/js/owl.carousel.min.js"></script>
-  <script src="owlfolder/js/script.js"></script>
+ 
 </body>
 </html>
