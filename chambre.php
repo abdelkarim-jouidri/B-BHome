@@ -43,6 +43,15 @@ require_once('connDb.php');
 
     $temperature_ext=$stmt->fetchAll();
 
+    // luminosite
+    $stmt = $conn->prepare("SELECT horodatage,valeur FROM temperature_int WHERE  nom_piece=? ");
+
+    $stmt ->execute(['chambre']);
+
+    $luminosite_chart=$stmt->fetchAll();
+// print_r($luminosite_chart);
+ 
+
 
 ?>
 
@@ -357,13 +366,60 @@ require_once('connDb.php');
           </div>
             </div>
           <!-- /*------------------------------------------------------------------- End ofAziz's part---------------------------------------------------------------------------------------------------------------> 
-
+<div id="chart_div"></div>
           </main>
   </div>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-  <script>
-    
+    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+
+<script>
+  
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+// Create the data table
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'Year');
+data.addColumn('number', 'temperature');
+
+<?php
+// foreach($luminosite_chart as $lum_chart){
+//   $a=$lum_chart['horodatage'];
+//   $b=$lum_chart['valeur'];
+
+
+//   }
+// var_dump($luminosite_chart);
+$json_array = json_encode($luminosite_chart);
+  ?>
+var dataArray =[];
+var js_array = JSON.parse('<?php echo $json_array; ?>');
+
+
+for (var n = 0; n < js_array.length; n++) {
+data.addRows([
+ [js_array[n]['horodatage'],js_array[n]['valeur']],
+ [js_array[n]['horodatage'],js_array[n]['valeur']]
+ 
+  
+  
+]);
+}
+
+var options = {
+  'title':'Température intérieure',
+               'width':500,
+               'height':500};
+
+var chart1 = new google.visualization.LineChart(document.getElementById('chart_div'));
+chart1.draw(data, options);
+
+}
+
+
+
 
  $(document).ready(function(){
 
