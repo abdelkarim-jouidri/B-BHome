@@ -348,30 +348,7 @@ require_once('connDb.php');
 
 
 <script>
-  
- 
-<<<<<<< HEAD
-  
-  
-]);
-}
 
-var options = {
-  'title':'Température intérieure',
-               'width':500,
-               'height':500
-              };
-
-var chart1 = new google.visualization.LineChart(document.getElementById('chart_div'));
-chart1.draw(data, options);
-
-}
-
-
-
-
-=======
->>>>>>> 7e244539592ed8595ee1a5882b4fda8520b5870b
  $(document).ready(function(){
 
 
