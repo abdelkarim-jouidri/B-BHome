@@ -411,7 +411,8 @@ data.addRows([
 var options = {
   'title':'Température intérieure',
                'width':500,
-               'height':500};
+               'height':500
+              };
 
 var chart1 = new google.visualization.LineChart(document.getElementById('chart_div'));
 chart1.draw(data, options);

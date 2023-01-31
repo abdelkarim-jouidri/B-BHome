@@ -207,13 +207,24 @@ data.addRows([
 
 var options = {
   'title':'Luminosité',
+  'width':75 +'%',
+  'height':100+'px'
                };
 
 var chart1 = new google.visualization.LineChart(document.getElementById('chart_div'));
 chart1.draw(data, options);
 
 }
+// window.addEventListener('resize', function() {
+//   // Update chart dimensions
+//   chart1.options.responsive = true;
+//   chart1.options.maintainAspectRatio = false;
+//   chart1.options.width = parent.offsetWidth;
+//   chart1.options.height = parent.offsetHeight;
 
+//   // Redraw chart
+//   chart1.update();
+// });
 function drawChart1() {
 // Create the data table
 var data = new google.visualization.DataTable();
