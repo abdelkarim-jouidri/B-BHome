@@ -44,7 +44,7 @@ require_once('connDb.php');
     $temperature_ext=$stmt->fetchAll();
 
     // luminosite
-    $stmt = $conn->prepare("SELECT * FROM luminosite WHERE  nom_piece=? ");
+    $stmt = $conn->prepare("SELECT horodatage,valeur FROM temperature_int WHERE  nom_piece=? ");
 
     $stmt ->execute(['chambre']);
 
@@ -382,7 +382,8 @@ function drawChart() {
 // Create the data table
 var data = new google.visualization.DataTable();
 data.addColumn('string', 'Year');
-data.addColumn('number', 'Sales');
+data.addColumn('number', 'temperature');
+
 <?php
 // foreach($luminosite_chart as $lum_chart){
 //   $a=$lum_chart['horodatage'];
@@ -390,25 +391,29 @@ data.addColumn('number', 'Sales');
 
 
 //   }
-var_dump($luminosite_chart[0]['horodatage'])
+// var_dump($luminosite_chart);
+$json_array = json_encode($luminosite_chart);
   ?>
+var dataArray =[];
+var js_array = JSON.parse('<?php echo $json_array; ?>');
+
+
+for (var n = 0; n < js_array.length; n++) {
 data.addRows([
-  [$a, $b],
-  ['2005', 1170],
-  ['2006', 660],
-  ['2007', 1030]
+ [js_array[n]['horodatage'],js_array[n]['valeur']],
+ [js_array[n]['horodatage'],js_array[n]['valeur']]
+ 
+  
+  
 ]);
+}
 
-// Set chart options
 var options = {
-  'title':'Company Performance',
-               'width':400,
-               'height':300};
+  'title':'Température intérieure',
+               'width':500,
+               'height':500};
 
-// Create the chart
-// var chart1 = new google.visualization.BarChart(document.getElementById('chart_div'));
 var chart1 = new google.visualization.LineChart(document.getElementById('chart_div'));
-// var chart3= new google.visualization.ScatterChart(document.getElementById('chart_div2'));
 chart1.draw(data, options);
 
 }
