@@ -21,6 +21,7 @@
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
   <link rel="stylesheet" href="css/main-styles.css">
+  <link rel="stylesheet" href="css/helper.css">
   <script src="js/main-script.js" defer></script>
 </head>
 <body>
@@ -161,6 +162,7 @@
                
                 <datalist id="values">
                   <option class="fw-bold" value="0" label="5°C"></option>
+                  <div class="text-cente fw-bold fs-6" id="temperature-value"></div>
                   <option class="fw-bold" value="30" label="30°C"></option>
                 </datalist>
                
@@ -172,9 +174,10 @@
           <div class="humidite p-2 d-flex justify-content-around align-item-center">
             <div style="margin-right: 51px;" class="margin-right-120 fw-bold">Humidité  </div>
             <div class="range">
-              <input type="range" class="form-range" id="customRange1" min="0" max="100"/>
+              <input type="range"value="" class="form-range" id="input-humidite" min="0" max="100"/>
               <datalist id="values">
                 <option class="fw-bold" value="0" label="0%"></option>
+                <div class="text-cente fw-bold fs-6" id="humidite-value"></div>
                 <option class="fw-bold" value="100" label="100%"></option>
               </datalist>
              
@@ -184,9 +187,11 @@
           <div class="luminosite p-2 d-flex justify-content-around align-item-center">
             <div class="margin-right-120 fw-bold">Luminosité  </div>
             <div class="range">
-              <input type="range" class="form-range" id="customRange1" min="0" max="100"/>
+              <input type="range" class="form-range" id="input-luminosite" min="0" max="100"/>
               <datalist id="values">
                 <option class="fw-bold" value="0" label="0%"></option>
+                <div class="text-cente fw-bold fs-6" id="luminosite-value"></div>
+
                 <option class="fw-bold" value="100" label="100%"></option>
               </datalist>
             </div>
@@ -198,37 +203,43 @@
           </div>
           <div class="item">
             <div class="Chauffage p-2 d-flex justify-content-around align-item-center">
-              
+                
               <div class="margin-right-120 fw-bold">Chauffage  </div>
               <div class="form-check form-switch margin-right-120">
-                <input   class="form-check-input padding-right-46" type="checkbox" id="check1" >
+                <input   class="form-check-input padding-right-46" type="checkbox" id="check1">
+                
+                
               </div>
           </div>
-    
-          <div class="VMC p-2 d-flex justify-content-around align-item-center">
-            <div  class="margin-right-120 fw-bold">VMC  </div>
+
+          <div class="Eclairage p-2 d-flex justify-content-around align-item-center">
+            <div  class="margin-right-120 fw-bold">Eclairage </div>
             <div class="form-check form-switch ms-5  margin-right-120 ">
-              <input  class="form-check-input padding-right-46" type="checkbox" id="check2" >
+              <input  class="form-check-input padding-right-46"  type="checkbox" id="check2" 
+             
+              >
             </div>
           </div>
-    
-          <div class="Eclairage p-2 d-flex justify-content-around align-item-center">
-            <div style="margin-right: -2px;" class="margin-right-114 fw-bold">Eclairage  </div>
+
+          <div class="VMC p-2 d-flex justify-content-around align-item-center">
+            <div style="margin-right: -2px;" class="margin-right-114 fw-bold"> VMC </div>
             <div class="range ">
-              <input type="range" class="form-range" id="customRange1" min="0" max="100"/>
+              <input type="range" class="form-range" value="" id="input-vmc" min="0" max="100"/>
               <datalist id="values">
                 <option class="fw-bold" value="0" label="0%"></option>
+                <div class="text-cente fw-bold fs-6" id="vmc-value"></div>
                 <option class="fw-bold" value="100" label="100%"></option>
               </datalist>
             </div>
           </div>
-    
+
           <div class="Volets p-2 d-flex justify-content-around align-item-center">
             <div style="margin-right: 13px;" class="margin-right-114 fw-bold">Volets  </div>
             <div class="range ">
-              <input type="range" class="form-range" id="customRange1" min="0" max="100"/>
+              <input type="range" class="form-range" value="" id="input-volets" min="0" max="100"/>
               <datalist id="values">
                 <option class="fw-bold" value="0" label="0%"></option>
+                <div class="text-cente fw-bold fs-6" id="volets-value"></div>
                 <option class="fw-bold" value="100" label="100%"></option>
               </datalist>
             </div>
@@ -254,38 +265,9 @@
 
     </main>
   </div>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
   <script>
-    
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-  // Create the data table
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Year');
-  data.addColumn('number', 'Sales');
-  data.addRows([
-    ['2004', 1000],
-    ['2005', 1170],
-    ['2006', 660],
-    ['2007', 1030]
-  ]);
-
-  // Set chart options
-  var options = {'title':'Company Performance',
-                 'width':400,
-                 'height':300};
-
-  // Create the chart
-  var chart1 = new google.visualization.BarChart(document.getElementById('chart_div'));
-  var chart2 = new google.visualization.LineChart(document.getElementById('chart_div1'));
-  var chart3= new google.visualization.ScatterChart(document.getElementById('chart_div2'));
-  chart1.draw(data, options);
-  chart2.draw(data, options);
-  chart3.draw(data, options);
-}
+ 
 
 
 
@@ -338,7 +320,7 @@ function drawChart() {
     console.log( 'Flickity select ' + flkty.selectedIndex )
   });
 
-temp
+// temp
 var slider_temp = document.getElementById("input-temperature");
 var value_temp = document.getElementById("temperature-value");
 
@@ -365,12 +347,12 @@ slider_luminosite.oninput = function() {
   value_luminosite.innerHTML = this.value+'%';
 }
 //eclairage
-var slider_eclairage = document.getElementById("input-eclairage");
-var value_eclairage = document.getElementById("eclairage-value");
+var slider_vmc = document.getElementById("input-vmc");
+var value_vmc = document.getElementById("vmc-value");
 
-value_eclairage.innerHTML = slider_eclairage.value+'%'; 
-slider_eclairage.oninput = function() {
-  value_eclairage.innerHTML = this.value+'%';
+value_vmc.innerHTML = slider_vmc.value+'%'; 
+slider_vmc.oninput = function() {
+  value_vmc.innerHTML = this.value+'%';
 }
 
 //volets
