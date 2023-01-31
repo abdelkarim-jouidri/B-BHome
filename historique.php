@@ -150,8 +150,8 @@ require_once('connDb.php');
 
     <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
     <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
-    <div id="chart_div" style="width: 100%; height : 100%"></div>
-    <div id="chart_div_1" style="width: 100%; height : 100%"></div>
+    <div id="chart_div" style="width: 90%; height : 90%"></div>
+    <div id="chart_div_1" style="width: 90%; height : 100%"></div>
               </main>
     
     <!-- /*------------------------------------------------------------------- Aziz's part---------------------------------------------------------------------------------------------------------------> 
@@ -167,13 +167,17 @@ require_once('connDb.php');
   </div>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
 
 <script>
   
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawChart);
   google.charts.setOnLoadCallback(drawChart1);
+
+  $(window).resize(function(){
+  drawChart();
+  drawChart1();
+});
 
 function drawChart() {
 // Create the data table
@@ -182,13 +186,7 @@ data.addColumn('string', 'Year');
 data.addColumn('number', 'Luminosité');
 
 <?php
-// foreach($luminosite_chart as $lum_chart){
-//   $a=$lum_chart['horodatage'];
-//   $b=$lum_chart['valeur'];
 
-
-//   }
-// var_dump($luminosite_chart);
 $json_array = json_encode($luminosite_int);
   ?>
 var dataArray =[];
@@ -221,13 +219,7 @@ data.addColumn('string', 'Year');
 data.addColumn('number', 'temperature');
 
 <?php
-// foreach($luminosite_chart as $lum_chart){
-//   $a=$lum_chart['horodatage'];
-//   $b=$lum_chart['valeur'];
 
-
-//   }
-// var_dump($luminosite_chart);
 $json_array = json_encode($temp_int);
   ?>
 var dataArray =[];
@@ -259,211 +251,6 @@ chart1.draw(data, options);
 
 
 
-  // carousel
-//   var flkty = new Flickity( '.carousel', {});
-//   flkty.selectedIndex
-//   flkty.on( 'select', function() {
-//     if(flkty.selectedIndex==0){
-//         $('.c-1').addClass('fw-bold');
-//         $('.c-2').removeClass('fw-bold');
-//         $('.c-3').removeClass('fw-bold');
-//         $('.c-1').removeClass('opacity-25');
-
-//         $('.c-2').addClass('opacity-25');
-//         $('.c-3').addClass('opacity-25');
-        
-
-//         $('.c-1').addClass('fs-6');
-//     }
-//     if(flkty.selectedIndex==1){
-//         $('.c-2').addClass('fw-bold');
-//         $('.c-1').removeClass('fw-bold');
-//         $('.c-3').removeClass('fw-bold');
-//         $('.c-2').removeClass('opacity-25');
-
-//         $('.c-2').addClass('fs-6');
-//         $('.c-1').removeClass('fs-6');
-//         $('.c-3').removeClass('fs-6');
-//         $('.c-1').addClass('opacity-25');
-//         $('.c-3').addClass('opacity-25');
-//     }
-//     if(flkty.selectedIndex==2){
-//         $('.c-3').addClass('fw-bold');
-//         $('.c-3').removeClass('opacity-25');
-//         $('.c-2').removeClass('fw-bold');
-//         $('.c-1').removeClass('fw-bold');
-
-//         $('.c-2').addClass('opacity-25');
-//         $('.c-1').addClass('opacity-25');
-
-//         $('.c-3').addClass('fs-6');
-//         $('.c-2').removeClass('fs-6');
-//         $('.c-1').removeClass('fs-6');
-//     }
-//     console.log( 'Flickity select ' + flkty.selectedIndex )
-//   });
-
-// // temperature
-// var slider_temp = document.getElementById("input-temperature");
-// var value_temp = document.getElementById("temperature-value");
-
-// value_temp.innerHTML = slider_temp.value+'°C'; 
-// slider_temp.oninput = function() {
-// value_temp.innerHTML = this.value+'°C';
- 
-// $.ajax({
-//     type: "POST",
-//     url: 'ajaxValues.php',
-//     data:{temp_value:this.value},
-//     success: function(response){
-//         console.log(response);
-//     }
-//   });
-// }
-
-
-// //humidite
-// var slider_humidite = document.getElementById("input-humidite");
-// var value_humidite = document.getElementById("humidite-value");
-
-// value_humidite.innerHTML = slider_humidite.value+'%'; 
-// slider_humidite.oninput = function() {
-//   value_humidite.innerHTML = this.value+'%';
-
-//   $.ajax({
-//     type: "POST",
-//     url: 'ajaxValues.php',
-//     data:{humidite_value:this.value},
-//     success: function(response){
-//         console.log(response);
-//     }
-//   });
-
-// }
-// //luminosite
-// var slider_luminosite = document.getElementById("input-luminosite");
-// var value_luminosite = document.getElementById("luminosite-value");
-
-// value_luminosite.innerHTML = slider_luminosite.value+'%'; 
-// slider_luminosite.oninput = function() {
-//   value_luminosite.innerHTML = this.value+'%';
-//   $.ajax({
-//     type: "POST",
-//     url: 'ajaxValues.php',
-//     data:{luminosite_value:this.value},
-//     success: function(response){
-//         console.log(response);
-//     }
-//   });
-// }
-// //eclairage
-// var slider_vmc = document.getElementById("input-vmc");
-// var value_vmc = document.getElementById("vmc-value");
-
-// value_vmc.innerHTML = slider_vmc.value+'%'; 
-// slider_vmc.oninput = function() {
-//   value_vmc.innerHTML = this.value+'%';
-//   console.log(this.value)
-
-//   $.ajax({
-//     type: "POST",
-//     url: 'ajaxValues.php',
-//     data:{vmc_value:this.value},
-//     success: function(response){
-//         console.log(response);
-//     }
-//   });
-
-// }
-
-// //volets
-
-// var slider_volets = document.getElementById("input-volets");
-// var value_volets = document.getElementById("volets-value");
-
-// value_volets.innerHTML = slider_volets.value+'%'; 
-// slider_volets.oninput = function() {
-//   value_volets.innerHTML = this.value+'%';
-
-//   $.ajax({
-//     type: "POST",
-//     url: 'ajaxValues.php',
-//     data:{volet_value:this.value},
-//     success: function(response){
-//         console.log(response);
-//     }
-//   });
-// }
-// // check 1 #
-// $('#check1').change(function() {
-    
-  
-//         $.ajax({
-//     type: "POST",
-//     url: 'ajaxValues.php',
-//     data:{etat_checked1:this.checked},
-//     success: function(response){
-//         console.log(response);
-//     }
-//   });
-
-    
-// });
-// // check 2 #
-// $('#check2').change(function() {
-    
-  
-//     $.ajax({
-// type: "POST",
-// url: 'ajaxValues.php',
-// data:{etat_checked2:this.checked},
-// success: function(response){
-//     console.log(response);
-// }
-// });
-
-
-// });
-
-// // check 3
-// $('#check3').change(function() {
-    
-//   $.ajax({
-// type: "POST",
-// url: 'ajaxValues.php',
-// data:{etat_checked3:this.checked},
-// success: function(response){
-//     console.log(response);
-// }
-// });
-
-
-// });
-
-
-
-// // cdt of alerts
-
-// let tempConsigne = slider_temp.value;
-// let tempMesure = document.getElementById("temp-mesure").innerHTML;
- 
-//  console.log(tempMesure);
-//  console.log(tempConsigne);
-//  if(tempMesure < tempConsigne + 0.5){
-//   if(document.getElementById("check1").checked == false ){
-//     document.getElementById("alert-allumer").classList.remove('d-none');
-
-//   }
-  
-//  }
-//  else if(tempMesure > tempConsigne + 0.5){
-//   if(document.getElementById("check1").checked == true){
-
-//   document.getElementById("alert-chauffage").classList.remove('d-none');
-//   }
-
-
-//  }
  
 
 
