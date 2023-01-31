@@ -43,13 +43,7 @@ require_once('connDb.php');
 
     $temperature_ext=$stmt->fetchAll();
 
-    // luminosite
-    $stmt = $conn->prepare("SELECT horodatage,valeur FROM temperature_int WHERE  nom_piece=? ");
-
-    $stmt ->execute(['chambre']);
-
-    $luminosite_chart=$stmt->fetchAll();
-// print_r($luminosite_chart);
+   
  
 
 
@@ -349,7 +343,6 @@ require_once('connDb.php');
 
           </div>
             </div>
-<div id="chart_div"></div>
           </main>
   </div>
 
