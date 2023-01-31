@@ -65,13 +65,11 @@ require_once('connDb.php');
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
   integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="owlfolder/css/owl.carousel.min.css">
 
   <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
 
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -95,9 +93,7 @@ require_once('connDb.php');
     <div class="weather">
       <div id="ww_559fdfef1145e" v='1.3' loc='id' a='{"t":"horizontal","lang":"fr","sl_lpl":1,"ids":["wl7517"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_phw":3,"el_whr":3}'>Weather Data Source: <a href="https://meteolabs.fr/meteo_orleans/" id="ww_559fdfef1145e_u" target="_blank">meteolabs.fr</a></div><script async src="https://app1.weatherwidget.org/js/?id=ww_559fdfef1145e"> console.log(document.querySelector('.ww_name')) 
       </script>
-      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M6.5 20q-2.275 0-3.887-1.575Q1 16.85 1 14.575q0-1.95 1.175-3.475Q3.35 9.575 5.25 9.15q.625-2.3 2.5-3.725Q9.625 4 12 4q2.925 0 4.962 2.037Q19 8.075 19 11q1.725.2 2.863 1.487Q23 13.775 23 15.5q0 1.875-1.312 3.188Q20.375 20 18.5 20Zm0-2h12q1.05 0 1.775-.725Q21 16.55 21 15.5q0-1.05-.725-1.775Q19.55 13 18.5 13H17v-2q0-2.075-1.462-3.538Q14.075 6 12 6Q9.925 6 8.463 7.462Q7 8.925 7 11h-.5q-1.45 0-2.475 1.025Q3 13.05 3 14.5q0 1.45 1.025 2.475Q5.05 18 6.5 18Zm5.5-6Z"/>
-      </svg> -->
+     
     </div>
     <div class="logout">
       <a class="logout-link" style="color: black;" href="login.php"> 
@@ -148,10 +144,7 @@ require_once('connDb.php');
 
       <main class="content p-3 gap-3">
 
-    <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
-    <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
     
-    <!-- /*------------------------------------------------------------------- Aziz's part---------------------------------------------------------------------------------------------------------------> 
           <div class="wrapper">
               <div class="carousel " style="">
                 <div class="carousel-cell c-1 me-5 fw-bold" ><a style="text-decoration: none; color: black; " href="chambre.html">Chambre</a></div>
@@ -228,18 +221,12 @@ require_once('connDb.php');
             <div class=" item">
                   
 
-              <!-- <div id="slider">
-                <span id="value">50</span>
-                <input type="range" id="range" value="50"/>
-            </div>  -->
-            
-            
+          
 
 
             <div class="température  p-2 d-flex justify-content-around align-item-center">
                 <div class="margin-right-120 fw-bold">Température  </div>
                 <div class="range" id="temperatue">
-                  <!-- <span id="rs-bullet" class="rs-label">0</span> -->
                   <input  type="range" value="<?= $piece[0]['t_consigne'];?>" class="form-range slider"  id="input-temperature" min="5" max="30" />
                 
                 
@@ -302,7 +289,6 @@ require_once('connDb.php');
                   ?>
                   >
                   
-                  <!-- <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> -->
                 </div>
             </div>
 
@@ -315,7 +301,6 @@ require_once('connDb.php');
                 }
                   ?>
                 >
-                <!-- <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> -->
               </div>
             </div>
 
@@ -359,68 +344,19 @@ require_once('connDb.php');
                   echo 'checked';}
                   ?>
                   >
-                  <!-- <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> -->
                 </div>
             </div>
 
           </div>
             </div>
-          <!-- /*------------------------------------------------------------------- End ofAziz's part---------------------------------------------------------------------------------------------------------------> 
 <div id="chart_div"></div>
           </main>
   </div>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
 
 <script>
   
-  google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-// Create the data table
-var data = new google.visualization.DataTable();
-data.addColumn('string', 'Year');
-data.addColumn('number', 'temperature');
-
-<?php
-// foreach($luminosite_chart as $lum_chart){
-//   $a=$lum_chart['horodatage'];
-//   $b=$lum_chart['valeur'];
-
-
-//   }
-// var_dump($luminosite_chart);
-$json_array = json_encode($luminosite_chart);
-  ?>
-var dataArray =[];
-var js_array = JSON.parse('<?php echo $json_array; ?>');
-
-
-for (var n = 0; n < js_array.length; n++) {
-data.addRows([
- [js_array[n]['horodatage'],js_array[n]['valeur']],
- [js_array[n]['horodatage'],js_array[n]['valeur']]
  
-  
-  
-]);
-}
-
-var options = {
-  'title':'Température intérieure',
-               'width':500,
-               'height':500};
-
-var chart1 = new google.visualization.LineChart(document.getElementById('chart_div'));
-chart1.draw(data, options);
-
-}
-
-
-
-
  $(document).ready(function(){
 
 
@@ -639,7 +575,6 @@ let tempMesure = document.getElementById("temp-mesure").innerHTML;
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script> 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
-  <script src="owlfolder/js/owl.carousel.min.js"></script>
-  <script src="owlfolder/js/script.js"></script>
+  
 </body>
 </html>

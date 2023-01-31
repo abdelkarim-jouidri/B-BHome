@@ -95,9 +95,7 @@ require_once('connDb.php');
     <div class="weather">
       <div id="ww_559fdfef1145e" v='1.3' loc='id' a='{"t":"horizontal","lang":"fr","sl_lpl":1,"ids":["wl7517"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_phw":3,"el_whr":3}'>Weather Data Source: <a href="https://meteolabs.fr/meteo_orleans/" id="ww_559fdfef1145e_u" target="_blank">meteolabs.fr</a></div><script async src="https://app1.weatherwidget.org/js/?id=ww_559fdfef1145e"> console.log(document.querySelector('.ww_name')) 
       </script>
-      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M6.5 20q-2.275 0-3.887-1.575Q1 16.85 1 14.575q0-1.95 1.175-3.475Q3.35 9.575 5.25 9.15q.625-2.3 2.5-3.725Q9.625 4 12 4q2.925 0 4.962 2.037Q19 8.075 19 11q1.725.2 2.863 1.487Q23 13.775 23 15.5q0 1.875-1.312 3.188Q20.375 20 18.5 20Zm0-2h12q1.05 0 1.775-.725Q21 16.55 21 15.5q0-1.05-.725-1.775Q19.55 13 18.5 13H17v-2q0-2.075-1.462-3.538Q14.075 6 12 6Q9.925 6 8.463 7.462Q7 8.925 7 11h-.5q-1.45 0-2.475 1.025Q3 13.05 3 14.5q0 1.45 1.025 2.475Q5.05 18 6.5 18Zm5.5-6Z"/>
-      </svg> -->
+     
     </div>
     <div class="logout">
       <a class="logout-link" style="color: black;" href="login.php"> 
@@ -144,17 +142,14 @@ require_once('connDb.php');
         </div>
 
       </aside>
-      <!----------------------------------------------------------------------- End of side bar ------------------------------------------------->
 
       <main class="content p-3 gap-3">
 
-    <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
-    <!----------------------------------------------------------------------- Anas part ------------------------------------------------->
+    
     <div id="chart_div" style="width: 90%; height : 90%"></div>
     <div id="chart_div_1" style="width: 90%; height : 100%"></div>
               </main>
     
-    <!-- /*------------------------------------------------------------------- Aziz's part---------------------------------------------------------------------------------------------------------------> 
      
                 
 
@@ -163,7 +158,6 @@ require_once('connDb.php');
               
          
             </div>
-          <!-- /*------------------------------------------------------------------- End ofAziz's part---------------------------------------------------------------------------------------------------------------> 
   </div>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 

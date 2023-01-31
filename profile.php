@@ -1,14 +1,14 @@
 <?php
-// require_once('verifierLogin.php');
-// require_once('connDb.php');
-// // print_r( $_SESSION['utilisateur'])
-// $email= $_SESSION['utilisateur']['adresse_mail'];
+require_once('verifierLogin.php');
+require_once('connDb.php');
+// print_r( $_SESSION['utilisateur'])
+$email= $_SESSION['utilisateur']['adresse_mail'];
 
-// $stmt = $conn->prepare("SELECT * FROM utilisateur WHERE adresse_mail = ?  ");
+$stmt = $conn->prepare("SELECT * FROM utilisateur WHERE adresse_mail = ?  ");
 
-// $stmt ->execute([$email]);
+$stmt ->execute([$email]);
 
-// $utilisateur = $stmt->fetchAll();
+$utilisateur = $stmt->fetchAll();
 
 
 
