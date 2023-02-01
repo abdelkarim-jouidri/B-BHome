@@ -17,7 +17,7 @@ if(isset($_POST['modifier'])){
 
   $stmt ->execute([$mdp,$adresse,$cp,$ville,$tel,$email]);
     
-   header("Location: azize.html");
+   header("Location: profile.php");
 
 
 

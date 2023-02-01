@@ -105,7 +105,7 @@ require_once('connDb.php');
             <li class="sidebar-list-item  activated" onclick="makeElementActive(this)">
               <a href="chambre.php" id="home-link" class="sidebar-link  activated">
                 <svg class="sidebar-icon activated" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" ><g ><path d="M4,10V21h6V15h4v6h6V10L12,3Z" ></path></g></svg>
-                <div class="hidden-sidebar sidebar-link-text activated">accueil</div>
+                <div class="hidden-sidebar sidebar-link-text activated">Accueil</div>
               </a>
             </li>
             <li class="sidebar-list-item " onclick="makeElementActive(this)">
@@ -142,7 +142,7 @@ require_once('connDb.php');
           <div class="wrapper">
               <div class="carousel " style="">
                 <div class="carousel-cell c-1 me-5 fw-bold" ><a style="text-decoration: none; color: black; " href="chambre.html">Chambre</a></div>
-                <div class="carousel-cell c-2 me-5 opacity-25"><a style="text-decoration: none; color: black; " href="ajoutePiece.html">Ajouter une piece</a></div>
+                <div class="carousel-cell c-2 me-5 opacity-25"><a style="text-decoration: none; color: black; " href="ajoutePiece.html">Ajouter une pièce</a></div>
                 <div class="carousel-cell c-3 opacity-25"><a style="text-decoration: none; color: black;" href="cuisine.html">Cuisine</a></div>
               </div>
                 

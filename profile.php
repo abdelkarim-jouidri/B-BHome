@@ -32,9 +32,9 @@ $utilisateur = $stmt->fetchAll();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
  
 
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"> -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <!-- <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> -->
 
   <link rel="stylesheet" href="css/helper.css">
   <link rel="stylesheet" href="css/main-styles.css">
@@ -74,7 +74,7 @@ $utilisateur = $stmt->fetchAll();
           <li class="sidebar-list-item " onclick="makeElementActive(this)">
             <a href="chambre.php" id="home-link" class="sidebar-link ">
               <svg class="sidebar-icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" ><g ><path d="M4,10V21h6V15h4v6h6V10L12,3Z" ></path></g></svg>
-              <div class="hidden-sidebar sidebar-link-text">accueil</div>
+              <div class="hidden-sidebar sidebar-link-text">Accueil</div>
             </a>
           </li>
           <li class="sidebar-list-item " onclick="makeElementActive(this)">
@@ -117,11 +117,11 @@ $utilisateur = $stmt->fetchAll();
                     <form action="modifierProfile.php" method="POST">
                     <div class="row mt-2">
                         <div class="col-md-12"><label class="labels">Adresse mail</label><input type="email" name="email" class="form-control" readonly="readonly" value="<?= $utilisateur[0]['adresse_mail']?>"></div>
-                        <div class="col-md-12"><label class="labels">Mot de passe</label><input type="text" name="mdp" class="form-control update" readonly="readonly" value="<?= $utilisateur[0]['mdp']?>"></div>
-                        <div class="col-md-12"><label class="labels">Adresse</label><input type="text" name="adresse" class="form-control update" readonly="readonly" value="<?= $utilisateur[0]['adresse']?>"></div>
-                        <div class="col-md-12"><label class="labels">Code postal</label><input type="number" name="cp" class="form-control update" readonly="readonly" value="<?= $utilisateur[0]['cp']?>"></div>
-                        <div class="col-md-12"><label class="labels">Ville</label><input type="text" name="ville" class="form-control update" readonly="readonly" value="<?= $utilisateur[0]['ville']?>"></div>
-                        <div class="col-md-12"><label class="labels">Numéro de téléphone</label><input type="text" name="tel" class="form-control update" readonly="readonly" value="<?= $utilisateur[0]['telephone']?>"></div>
+                        <div class="col-md-12"><label class="labels">Mot de passe</label><input type="text" name="mdp" class="form-control update"  value="<?= $utilisateur[0]['mdp']?>"></div>
+                        <div class="col-md-12"><label class="labels">Adresse</label><input type="text" name="adresse" class="form-control update"  value="<?= $utilisateur[0]['adresse']?>"></div>
+                        <div class="col-md-12"><label class="labels">Code postal</label><input type="number" name="cp" class="form-control update"  value="<?= $utilisateur[0]['cp']?>"></div>
+                        <div class="col-md-12"><label class="labels">Ville</label><input type="text" name="ville" class="form-control update"  value="<?= $utilisateur[0]['ville']?>"></div>
+                        <div class="col-md-12"><label class="labels">Numéro de téléphone</label><input type="text" name="tel" class="form-control update"  value="<?= $utilisateur[0]['telephone']?>"></div>
                         
                     </div>
              
@@ -147,76 +147,76 @@ $utilisateur = $stmt->fetchAll();
 
   <script>
     
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+//     google.charts.load('current', {'packages':['corechart']});
+//     google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-  // Create the data table
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Year');
-  data.addColumn('number', 'Sales');
-  data.addRows([
-    ['2004', 1000],
-    ['2005', 1170],
-    ['2006', 660],
-    ['2007', 1030]
-  ]);
+// function drawChart() {
+//   // Create the data table
+//   var data = new google.visualization.DataTable();
+//   data.addColumn('string', 'Year');
+//   data.addColumn('number', 'Sales');
+//   data.addRows([
+//     ['2004', 1000],
+//     ['2005', 1170],
+//     ['2006', 660],
+//     ['2007', 1030]
+//   ]);
 
-  // Set chart options
-  var options = {'title':'Company Performance',
-                 'width':400,
-                 'height':300};
+//   // Set chart options
+//   var options = {'title':'Company Performance',
+//                  'width':400,
+//                  'height':300};
 
-  // Create the chart
-  var chart1 = new google.visualization.BarChart(document.getElementById('chart_div'));
-  var chart2 = new google.visualization.LineChart(document.getElementById('chart_div1'));
-  var chart3= new google.visualization.ScatterChart(document.getElementById('chart_div2'));
-  chart1.draw(data, options);
-  chart2.draw(data, options);
-  chart3.draw(data, options);
-}
-
-
+//   // Create the chart
+//   var chart1 = new google.visualization.BarChart(document.getElementById('chart_div'));
+//   var chart2 = new google.visualization.LineChart(document.getElementById('chart_div1'));
+//   var chart3= new google.visualization.ScatterChart(document.getElementById('chart_div2'));
+//   chart1.draw(data, options);
+//   chart2.draw(data, options);
+//   chart3.draw(data, options);
+// }
 
 
 
 
 
- $(document).ready(function(){
-  // carousel
-  var flkty = new Flickity( '.carousel', {});
-  flkty.on( 'select', function() {
-    if(flkty.selectedIndex==0){
-        $('.c-1').addClass('fw-bold');
-        $('.c-2').removeClass('fw-bold');
-        $('.c-3').removeClass('fw-bold');
 
-        $('.c-1').addClass('fs-6');
-    }
-    if(flkty.selectedIndex==1){
-        $('.c-2').addClass('fw-bold');
-        $('.c-1').removeClass('fw-bold');
-        $('.c-3').removeClass('fw-bold');
 
-        $('.c-2').addClass('fs-6');
-        $('.c-1').removeClass('fs-6');
-        $('.c-3').removeClass('fs-6');
-    }
-    if(flkty.selectedIndex==2){
-        $('.c-3').addClass('fw-bold');
-        $('.c-2').removeClass('fw-bold');
-        $('.c-1').removeClass('fw-bold');
+//  $(document).ready(function(){
+//   // carousel
+//   var flkty = new Flickity( '.carousel', {});
+//   flkty.on( 'select', function() {
+//     if(flkty.selectedIndex==0){
+//         $('.c-1').addClass('fw-bold');
+//         $('.c-2').removeClass('fw-bold');
+//         $('.c-3').removeClass('fw-bold');
 
-        $('.c-3').addClass('fs-6');
-        $('.c-2').removeClass('fs-6');
-        $('.c-1').removeClass('fs-6');
-    }
-    console.log( 'Flickity select ' + flkty.selectedIndex )
-  });
+//         $('.c-1').addClass('fs-6');
+//     }
+//     if(flkty.selectedIndex==1){
+//         $('.c-2').addClass('fw-bold');
+//         $('.c-1').removeClass('fw-bold');
+//         $('.c-3').removeClass('fw-bold');
+
+//         $('.c-2').addClass('fs-6');
+//         $('.c-1').removeClass('fs-6');
+//         $('.c-3').removeClass('fs-6');
+//     }
+//     if(flkty.selectedIndex==2){
+//         $('.c-3').addClass('fw-bold');
+//         $('.c-2').removeClass('fw-bold');
+//         $('.c-1').removeClass('fw-bold');
+
+//         $('.c-3').addClass('fs-6');
+//         $('.c-2').removeClass('fs-6');
+//         $('.c-1').removeClass('fs-6');
+//     }
+//     console.log( 'Flickity select ' + flkty.selectedIndex )
+//   });
 
 
  
-})
+// })
   </script>
  
 </body>
